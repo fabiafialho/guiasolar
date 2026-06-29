@@ -5,33 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía Solar - De Principiante a Profesional</title>
     <style>
-        /* (Manter o mesmo CSS da versão anterior para garantir a responsividade) */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&display=swap');
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+        .top-nav { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 800; font-size: 20px; color: #1e40af; display: flex; align-items: center; gap: 5px; }
+        .logo span { color: #f59e0b; }
+        .nav-links { display: flex; gap: 15px; }
+        .nav-links a { text-decoration: none; color: #64748b; font-size: 14px; font-weight: 500; }
+        .nav-btn { background: #10b981; color: white !important; padding: 6px 12px; border-radius: 6px; font-weight: 600; }
+
         .wrapper { width: 100%; max-width: 650px; margin: 0 auto; background: #ffffff; box-shadow: 0 0 30px rgba(0,0,0,0.05); }
-        .main-mockup, .trust-banner-img, .security-stack-img { width: 100%; height: auto; display: block; }
+
         .hero { background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; padding: 45px 20px; text-align: center; }
-        .cta-btn { display: block; background: #10b981; color: white; padding: 18px; border-radius: 10px; text-align: center; font-weight: 800; text-decoration: none; margin: 20px 0; }
+        .hero h1 { font-size: 26px; font-weight: 900; line-height: 1.3; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .hero h1 span { color: #fbbf24; }
+        .hero-sub { font-size: 15px; margin-bottom: 30px; color: #dbeafe; font-weight: 400; }
+        .main-mockup { width: 100%; height: auto; margin: 0 auto 25px; display: block; border-radius: 8px; }
+
+        .price-container { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 20px; margin-bottom: 25px; }
+        .old-price { text-decoration: line-through; color: #93c5fd; font-size: 16px; margin-bottom: 5px; }
+        .new-price { font-size: 46px; font-weight: 900; color: #fbbf24; line-height: 1; margin-bottom: 5px; }
+        .cta-btn { display: block; background: #10b981; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800; text-decoration: none; padding: 16px 20px; border-radius: 10px; box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); margin-bottom: 15px; text-transform: uppercase; text-align: center; }
+
+        .trust-section { background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 25px 20px; text-align: center; }
+        .trust-banner-img { width: 100%; max-width: 420px; margin: 0 auto 20px; display: block; }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .stat-card { background: #ffffff; padding: 12px 4px; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .stat-card strong { font-size: 16px; font-weight: 800; color: #1e3a8a; display: block; }
+        .stat-card span { font-size: 11px; color: #64748b; font-weight: 500; display: block; }
+
+        .modules-section { padding: 45px 20px; background: #ffffff; }
+        .section-header { text-align: center; margin-bottom: 30px; }
+        .section-header h2 { font-size: 22px; font-weight: 800; color: #1e3a8a; }
+        .module-item { background: #f8fafc; border-left: 5px solid #10b981; padding: 16px; margin-bottom: 12px; border-radius: 0 10px 10px 0; display: flex; gap: 12px; }
+        .module-check { color: #10b981; font-weight: bold; font-size: 18px; }
+        .module-content h3 { font-size: 15px; color: #1e3a8a; font-weight: 700; }
+        
         .bonuses-section { background: #f1f5f9; padding: 30px 20px; }
-        .bonus-card { background: white; border: 2px solid #2563eb; padding: 20px; margin-bottom: 20px; border-radius: 12px; text-align: center; }
+        .bonus-card { background: #ffffff; border: 2px solid #2563eb; border-radius: 12px; padding: 20px; margin-bottom: 25px; position: relative; text-align: center; }
+        .bonus-badge { position: absolute; top: -12px; right: 15px; background: #ef4444; color: white; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 30px; text-transform: uppercase; }
+        .total-box { background: #fff; border: 3px dashed #ef4444; border-radius: 12px; padding: 20px; text-align: center; margin: 20px 0; }
+        
+        .security-stack-section { padding: 35px 20px; text-align: center; }
+        .security-stack-img { width: 100%; max-width: 440px; margin: 0 auto; display: block; }
+        
+        .green-conversion-box { background: #10b981; color: #ffffff; padding: 40px 20px; text-align: center; }
+        .white-cta-btn { display: block; background: #ffffff; color: #10b981; font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800; text-decoration: none; padding: 16px 20px; border-radius: 8px; text-transform: uppercase; margin-bottom: 20px; text-align: center; }
+        
+        footer { background: #0f172a; color: #94a3b8; padding: 35px 20px; text-align: center; font-size: 12px; }
     </style>
 </head>
 <body>
 
+<div class="top-nav">
+    <div class="logo">☀️ Guía<span>Solar</span></div>
+    <div class="nav-links">
+        <a href="#modulos">Módulos</a>
+        <a href="#comprar" class="nav-btn">Comprar</a>
+    </div>
+</div>
+
 <div class="wrapper">
-    <section class="hero">
-        <h1>Guía Esencial para Energía Solar</h1>
+    <section class="hero" id="inicio">
+        <h1>Guía Esencial para Instaladores y Emprendedores de <span>Energía Solar</span></h1>
+        <p class="hero-sub">De Principiante a Instalador Solar Profesional en 20 Días — Sin Necesidad de Experiencia Previa.</p>
         <img src="https://drive.google.com/thumbnail?id=1gr2oODDCvK5eA3B_Jdwyvbf_XC-lMmSk&sz=w800" alt="Guía Solar" class="main-mockup">
-        <a href="#" class="cta-btn">¡SÍ, QUIERO LA GUÍA POR US$ 9.97!</a>
+        <div class="price-container">
+            <p class="old-price">Precio regular: US$ 67.00</p>
+            <p class="new-price">US$ 9.97</p>
+        </div>
+        <a href="https://pay.hotmart.com/YOUR_HOTMART_ID" class="cta-btn" id="comprar">¡SÍ, QUIERO LA GUÍA POR US$ 9.97!</a>
     </section>
 
-    <section>
-        <img src="https://drive.google.com/thumbnail?id=1VeeOOE8vaLTezOkgR6XCtMftQcIx0l-_&sz=w800" alt="Pagos">
+    <section class="trust-section">
+        <img src="https://drive.google.com/thumbnail?id=1VeeOOE8vaLTezOkgR6XCtMftQcIx0l-_&sz=w800" alt="Compra Segura" class="trust-banner-img">
     </section>
 
-    <section>
-        <img src="https://drive.google.com/thumbnail?id=1_m7CjEDVM3-L9t4rcBooOlBgSa7aQgnZ&sz=w800" alt="Módulos">
+    <section class="modules-section" id="modulos">
+        <img src="https://drive.google.com/thumbnail?id=1_m7CjEDVM3-L9t4rcBooOlBgSa7aQgnZ&sz=w800" alt="Módulos" class="main-mockup">
     </section>
 
     <section class="bonuses-section">
@@ -41,10 +96,13 @@
         <div class="bonus-card"><img src="https://drive.google.com/thumbnail?id=172cFeTyG1ts9FpJ1zWT-OY73WhRR3Wxo&sz=w800" alt="Bono 4"></div>
     </section>
 
-    <section>
-        <img src="https://drive.google.com/thumbnail?id=1_-idySmxZ3yFbCFonxilQnXZcjfPq1Q5&sz=w800" alt="Garantía">
+    <section class="security-stack-section">
+        <img src="https://drive.google.com/thumbnail?id=1_-idySmxZ3yFbCFonxilQnXZcjfPq1Q5&sz=w800" alt="Garantía Completa" class="security-stack-img">
     </section>
-</div>
 
+    <footer>
+        <p>© 2026 Grupo Energía Solar. Todos los derechos reservados.</p>
+    </footer>
+</div>
 </body>
 </html>
