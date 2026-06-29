@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Solar - Profesional Solar</title>
+    <title>Guía Solar - De Principiante a Profesional</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&display=swap');
 
@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #ffffff;
+            background-color: #f8fafc;
             color: #1e293b;
             line-height: 1.6;
         }
@@ -40,6 +40,9 @@
             font-weight: 800;
             font-size: 20px;
             color: #1e40af;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .logo span {
@@ -74,6 +77,7 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.05);
         }
 
+        /* Hero Section */
         .hero {
             background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
             color: #ffffff;
@@ -82,10 +86,11 @@
         }
 
         .hero h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
-            line-height: 1.25;
+            line-height: 1.3;
             margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
 
         .hero h1 span {
@@ -96,12 +101,14 @@
             font-size: 15px;
             margin-bottom: 30px;
             color: #dbeafe;
+            font-weight: 400;
         }
 
         .main-mockup {
             width: 100%;
-            max-width: 480px;
-            margin: 0 auto 30px;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 25px;
             display: block;
             border-radius: 8px;
         }
@@ -122,9 +129,11 @@
         }
 
         .new-price {
-            font-size: 48px;
+            font-size: 46px;
             font-weight: 900;
             color: #fbbf24;
+            line-height: 1;
+            margin-bottom: 5px;
         }
 
         .cta-btn {
@@ -132,22 +141,31 @@
             background: #10b981;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 800;
             text-decoration: none;
-            padding: 18px 20px;
+            padding: 16px 20px;
             border-radius: 10px;
-            text-transform: uppercase;
-            text-align: center;
             box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
         }
 
         .guarantee-line {
-            font-size: 14px;
+            font-size: 13.5px;
             color: #f8fafc;
-            margin-top: 10px;
+            font-weight: 500;
         }
 
+        .hero-footer-text {
+            font-size: 13px;
+            color: #93c5fd;
+            margin-top: 15px;
+        }
+
+        /* Trust Badges section */
         .trust-section {
             background: #f8fafc;
             border-bottom: 1px solid #e2e8f0;
@@ -176,7 +194,8 @@
         }
 
         .stat-card strong {
-            font-size: 18px;
+            font-size: 16px;
+            font-weight: 800;
             color: #1e3a8a;
             display: block;
         }
@@ -184,23 +203,36 @@
         .stat-card span {
             font-size: 11px;
             color: #64748b;
+            font-weight: 500;
+            line-height: 1.2;
+            display: block;
         }
 
+        /* Modules Section */
         .modules-section {
             padding: 45px 20px;
+            background: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .section-header h2 {
-            font-size: 24px;
+            font-size: 22px;
+            font-weight: 800;
             color: #1e3a8a;
-            text-align: center;
         }
 
         .section-header p {
-            text-align: center;
             font-size: 14px;
             color: #64748b;
-            margin-bottom: 20px;
+            margin-top: 8px;
+        }
+
+        .module-list {
+            margin-top: 25px;
         }
 
         .module-item {
@@ -216,14 +248,29 @@
         .module-check {
             color: #10b981;
             font-weight: bold;
+            font-size: 18px;
         }
 
+        .module-content h3 {
+            font-size: 15px;
+            color: #1e3a8a;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .module-content p {
+            font-size: 13px;
+            color: #475569;
+        }
+
+        /* Bonuses Section */
         .bonuses-title-banner {
             background: #1e3a8a;
             color: #ffffff;
             text-align: center;
             padding: 15px;
             font-weight: 700;
+            font-size: 18px;
         }
 
         .bonuses-section {
@@ -237,45 +284,166 @@
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 25px;
+            position: relative;
             text-align: center;
+        }
+
+        .bonus-badge {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #ef4444;
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+
+        .bonus-card h3 {
+            font-size: 16px;
+            color: #1e3a8a;
+            font-weight: 800;
+        }
+
+        .bonus-card .sub {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 4px 0 12px;
+        }
+
+        .bonus-img-container {
+            width: 100%;
+            max-width: 280px;
+            margin: 10px auto;
         }
 
         .bonus-img-container img {
             width: 100%;
-            max-width: 320px;
+            height: auto;
             border-radius: 6px;
         }
 
+        .bonus-card p.desc {
+            font-size: 13px;
+            color: #475569;
+            text-align: left;
+            margin-top: 10px;
+        }
+
         .bonus-pricing {
+            margin-top: 15px;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 12px;
             display: flex;
             justify-content: space-between;
-            margin-top: 15px;
-            font-weight: bold;
+            align-items: center;
+        }
+
+        .bonus-old {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+
+        .bonus-free {
+            color: #10b981;
+            font-weight: 800;
         }
 
         .total-box {
+            background: #fff;
             border: 3px dashed #ef4444;
+            border-radius: 12px;
             padding: 20px;
             text-align: center;
-            background: white;
-            border-radius: 12px;
+            margin: 20px 0;
         }
 
+        .total-box p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        .total-old-val {
+            font-size: 22px;
+            text-decoration: line-through;
+            color: #ef4444;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .total-new-val {
+            font-size: 20px;
+            color: #10b981;
+            font-weight: 800;
+        }
+
+        .security-stack-section {
+            background: #ffffff;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .security-stack-img {
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Testimonials Section */
         .testimonials-section {
             background: #f8fafc;
             padding: 40px 20px;
         }
 
         .testimonial-card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            background: #ffffff;
             border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
         }
 
+        .test-user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .test-name {
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .test-country {
+            font-size: 12px;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .test-stars {
+            color: #fbbf24;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .test-text {
+            font-size: 13px;
+            color: #334155;
+            font-style: italic;
+        }
+
+        /* FAQ Section */
         .faq-section {
             padding: 40px 20px;
+            background: #ffffff;
         }
 
         details {
@@ -284,45 +452,133 @@
             border-radius: 8px;
             margin-bottom: 10px;
             border: 1px solid #e2e8f0;
+            cursor: pointer;
         }
 
+        summary {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 14px;
+        }
+
+        details p {
+            padding-top: 10px;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        /* Green Conversion Box */
         .green-conversion-box {
             background: #10b981;
-            color: white;
+            color: #ffffff;
             padding: 40px 20px;
             text-align: center;
         }
 
-        .white-cta-btn {
-            display: block;
-            background: white;
-            color: #10b981;
-            padding: 16px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .green-conversion-box h2 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 15px;
         }
 
+        .green-conversion-box p {
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .white-cta-btn {
+            display: block;
+            background: #ffffff;
+            color: #10b981;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .bullet-features {
+            text-align: left;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .bullet-item {
+            font-size: 13px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* About Section */
         .about-section {
             padding: 40px 20px;
             background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .about-section h2 {
+            font-size: 18px;
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .about-section p {
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
+        .objection-grid {
+            margin-top: 25px;
         }
 
         .objection-card {
-            background: white;
-            padding: 15px;
+            background: #ffffff;
             border: 1px solid #e2e8f0;
-            margin-bottom: 10px;
+            padding: 15px;
             border-radius: 8px;
+            margin-bottom: 10px;
         }
 
+        .objection-card strong {
+            color: #ef4444;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .objection-card p {
+            font-size: 13px;
+            color: #475569;
+        }
+
+        /* Footer */
         footer {
             background: #0f172a;
             color: #94a3b8;
             padding: 35px 20px;
             text-align: center;
             font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #64748b;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -338,102 +594,216 @@
 </div>
 
 <div class="wrapper">
+
+    <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <h1>Guía Esencial para Instaladores y Emprendedores de <span>Energía Solar</span></h1>
         <p class="hero-sub">De Principiante a Instalador Solar Profesional en 20 Días — Sin Necesidad de Experiencia Previa.</p>
-        <img src="https://docs.google.com/uc?export=view&id=1gr2oODDCvK5eA3B_Jdwyvbf_XC-lMmSk" alt="Guía Solar Mockup" class="main-mockup">
+        
+        <img src="1.png" alt="Guía Solar" class="main-mockup">
+
         <div class="price-container">
             <p class="old-price">Precio regular: US$ 67.00</p>
             <p class="new-price">US$ 9.97</p>
             <p class="guarantee-line">🛡️ Prueba sin riesgos: 30 días de garantía total</p>
         </div>
-        <a href="https://pay.hotmart.com/YOUR_HOTMART_ID" class="cta-btn">¡SÍ, QUIERO LA GUÍA POR US$ 9.97!</a>
+
+        <a href="https://pay.hotmart.com/YOUR_HOTMART_ID" class="cta-btn" id="comprar">¡SÍ, QUIERO LA GUÍA POR US$ 9.97!</a>
+        <p class="hero-footer-text">Más de 3,200 profesionales ya han transformado sus carreras con este método. ⭐⭐⭐⭐⭐ 4.8/5 estrellas</p>
     </section>
 
+    <!-- TRUST SECTION -->
     <section class="trust-section">
-        <img src="https://docs.google.com/uc?export=view&id=1VeeOOE8vaLTezOkgR6XCtMftQcIx0l-_" alt="Medios de Pago" class="trust-banner-img">
+        <img src="3.png" alt="Compra Segura" class="trust-banner-img">
+        
         <div class="stats-row">
-            <div class="stat-card"><strong>3,200+</strong><span>Alumnos</span></div>
-            <div class="stat-card"><strong>4.8/5</strong><span>Calificación</span></div>
-            <div class="stat-card"><strong>100+</strong><span>Horas</span></div>
-            <div class="stat-card"><strong>100%</strong><span>Garantía</span></div>
+            <div class="stat-card">
+                <strong>3,200+</strong>
+                <span>Alumnos Capacitados</span>
+            </div>
+            <div class="stat-card">
+                <strong>4.8/5</strong>
+                <span>Calificación Promedio</span>
+            </div>
+            <div class="stat-card">
+                <strong>100+</strong>
+                <span>Horas de Contenido</span>
+            </div>
+            <div class="stat-card">
+                <strong>100%</strong>
+                <span>Satisfacción</span>
+            </div>
         </div>
     </section>
 
+    <!-- MODULES SECTION -->
     <section class="modules-section" id="modulos">
         <div class="section-header">
             <h2>Contenido del Curso Manual Solar</h2>
-            <p>Todo lo que necesitas para <strong>FACTURAR</strong> en el mercado solar.</p>
+            <p>Todo lo que necesitas para <strong>FACTURAR</strong> en el mercado solar. Un paso a paso diseñado para quienes buscan resultados rápidos y reales.</p>
         </div>
-        <img src="https://docs.google.com/uc?export=view&id=1_m7CjEDVM3-L9t4rcBooOlBgSa7aQgnZ" alt="Módulos" class="main-mockup">
-        
-        <div class="module-item">
-            <div class="module-check">✓</div>
-            <div>
-                <h3>1. Empresa desde Cero</h3>
-                <p>Cómo formalizar tu negocio y conseguir proveedores directos con los mejores precios.</p>
+
+        <img src="2.png" alt="Módulos del Curso" class="main-mockup">
+
+        <div class="module-list">
+            <div class="module-item">
+                <div class="module-check">✓</div>
+                <div class="module-content">
+                    <h3>1. Empresa desde Cero</h3>
+                    <p>Cómo formalizar tu negocio y conseguir proveedores directos con los mejores precios.</p>
+                </div>
             </div>
-        </div>
-        <div class="module-item">
-            <div class="module-check">✓</div>
-            <div>
-                <h3>2. Instalación Maestra</h3>
-                <p>Guía práctica de montaje, cableado y conexión para sistemas On-Grid y Off-Grid.</p>
+            <div class="module-item">
+                <div class="module-check">✓</div>
+                <div class="module-content">
+                    <h3>2. Instalación Maestra</h3>
+                    <p>Guía práctica de montaje, cableado y conexión para sistemas On-Grid y Off-Grid.</p>
+                </div>
             </div>
-        </div>
-        <div class="module-item">
-            <div class="module-check">✓</div>
-            <div>
-                <h3>3. Cálculos y Proyectos</h3>
-                <p>Domina el dimensionamiento para no perder dinero y entregar proyectos perfectos.</p>
+            <div class="module-item">
+                <div class="module-check">✓</div>
+                <div class="module-content">
+                    <h3>3. Cálculos y Proyectos</h3>
+                    <p>Domina el dimensionamiento para no perder dinero y entregar proyectos perfectos.</p>
+                </div>
+            </div>
+            <div class="module-item">
+                <div class="module-check">✓</div>
+                <div class="module-content">
+                    <h3>4. Ventas de Alto Nivel</h3>
+                    <p>Técnicas de negociación para cerrar contratos y crear presupuestos irresistibles.</p>
+                </div>
+            </div>
+            <div class="module-item">
+                <div class="module-check">✓</div>
+                <div class="module-content">
+                    <h3>5. Marketing Digital</h3>
+                    <p>Usa Facebook e Instagram para atraer clientes interesados todos los días.</p>
+                </div>
+            </div>
+            <div class="module-item">
+                <div class="module-check">✓</div>
+                <div class="module-content">
+                    <h3>6. Renta Recurrente</h3>
+                    <p>Descubre cómo ganar dinero con el mantenimiento y consultoría constante.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="bonuses-title-banner">🎁 ¡Regalos Exclusivos si Ordenas HOY!</div>
+    <!-- BONUSES SECTION -->
+    <div class="bonuses-title-banner">
+        🎁 ¡Regalos Exclusivos si Ordenas HOY!
+    </div>
     <section class="bonuses-section">
         <div class="bonus-card">
+            <span class="bonus-badge">Bono #1</span>
             <h3>Planilla para Dimensionamiento Off Grid</h3>
-            <div class="bonus-img-container"><img src="https://docs.google.com/uc?export=view&id=1XmO_IZsEivNaa5N-H_gVvAU-_cBV_syg" alt="Bono 1"></div>
-            <div class="bonus-pricing"><span style="text-decoration:line-through; color:#94a3b8;">US$ 37</span><span style="color:#10b981;">¡Hoy Gratis!</span></div>
+            <div class="sub">Planilla Pro: Dimensionamiento Off-Grid</div>
+            <div class="bonus-img-container"><img src="4.png" alt="Bono 1"></div>
+            <p class="desc">¿Miedo a calcular mal? Con esta herramienta obtienes el cálculo exacto de paneles y baterías.</p>
+            <div class="bonus-pricing">
+                <span class="bonus-old">US$ 37</span>
+                <span class="bonus-free">¡Hoy Gratis!</span>
+            </div>
         </div>
+
         <div class="bonus-card">
+            <span class="bonus-badge">Bono #2</span>
             <h3>Planilla de Control Financiero</h3>
-            <div class="bonus-img-container"><img src="https://docs.google.com/uc?export=view&id=16DLuT3HuzUuFbKT_vLdLXJ2v8LcYY1rm" alt="Bono 2"></div>
-            <div class="bonus-pricing"><span style="text-decoration:line-through; color:#94a3b8;">US$ 27</span><span style="color:#10b981;">¡Hoy Gratis!</span></div>
+            <div class="sub">Gestor Financiero de Proyectos</div>
+            <div class="bonus-img-container"><img src="5.png" alt="Bono 2"></div>
+            <p class="desc">Organiza cada centavo de tus instalaciones y calcula tu margen de ganancia real.</p>
+            <div class="bonus-pricing">
+                <span class="bonus-old">US$ 27</span>
+                <span class="bonus-free">¡Hoy Gratis!</span>
+            </div>
         </div>
+
         <div class="bonus-card">
+            <span class="bonus-badge">Bono #3</span>
             <h3>Guia de Herramientas</h3>
-            <div class="bonus-img-container"><img src="https://docs.google.com/uc?export=view&id=1Cv1xw2cmiEyl1bFtZ_AFn0HuA00J4fPS" alt="Bono 3"></div>
-            <div class="bonus-pricing"><span style="text-decoration:line-through; color:#94a3b8;">US$ 34</span><span style="color:#10b981;">¡Hoy Gratis!</span></div>
+            <div class="sub">Guía de Herramientas Esenciales</div>
+            <div class="bonus-img-container"><img src="6.png" alt="Bono 3"></div>
+            <p class="desc">Te revelamos la lista exacta de lo que realmente importa para instalar con calidad profesional.</p>
+            <div class="bonus-pricing">
+                <span class="bonus-old">US$ 34</span>
+                <span class="bonus-free">¡Hoy Gratis!</span>
+            </div>
         </div>
+
         <div class="bonus-card">
+            <span class="bonus-badge">Bono #4</span>
             <h3>Check List Solar</h3>
-            <div class="bonus-img-container"><img src="https://docs.google.com/uc?export=view&id=172cFeTyG1ts9FpJ1zWT-OY73WhRR3Wxo" alt="Bono 4"></div>
-            <div class="bonus-pricing"><span style="text-decoration:line-through; color:#94a3b8;">US$ 19</span><span style="color:#10b981;">¡Hoy Gratis!</span></div>
+            <div class="sub">Checklist Técnico de Instalación</div>
+            <div class="bonus-img-container"><img src="7.png" alt="Bono 4"></div>
+            <p class="desc">Sigue este paso a paso técnico para asegurar que no falte ningún detalle en la conexión.</p>
+            <div class="bonus-pricing">
+                <span class="bonus-old">US$ 19</span>
+                <span class="bonus-free">¡Hoy Gratis!</span>
+            </div>
         </div>
 
         <div class="total-box">
             <p>VALOR TOTAL QUE RECIBES DE REGALO:</p>
-            <div style="font-size:24px; text-decoration:line-through; color:#ef4444; font-weight:bold;">US$ 117</div>
-            <div style="color:#10b981; font-weight:800;">🎁 HOY: US$ 0.00 (INCLUIDO)</div>
+            <div class="total-old-val">US$ 117.00</div>
+            <div class="total-new-val">🎁 HOY: US$ 0.00 (INCLUIDO)</div>
         </div>
     </section>
 
-    <section class="security-stack-section" style="text-align:center; padding: 20px;">
-        <img src="https://docs.google.com/uc?export=view&id=1_-idySmxZ3yFbCFonxilQnXZcjfPq1Q5" alt="Garantía Completa" class="main-mockup">
+    <!-- SECURITY BLOCK -->
+    <section class="security-stack-section">
+        <img src="8.png" alt="Garantía Completa" class="security-stack-img">
     </section>
 
+    <!-- TESTIMONIALS -->
     <section class="testimonials-section" id="testimonios">
         <h2>Lo que dicen nuestros alumnos</h2>
-        <div class="testimonial-card"><strong>Andrés G. (Colombia) ★★★★★</strong><p>"Material excelente. Muy práctico y directo al punto."</p></div>
-        <div class="testimonial-card"><strong>Felipe M. (México) ★★★★★</strong><p>"La mejor decisión. El método me está ayudando a cerrar negocios."</p></div>
+        <div class="testimonial-card">
+            <div class="test-user-info"><strong>Andrés G.</strong><span class="test-country">Colombia 🇨🇴</span></div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">"Material excelente. Muy práctico y directo al punto."</p>
+        </div>
+        <div class="testimonial-card">
+            <div class="test-user-info"><strong>Felipe M.</strong><span class="test-country">México 🇲🇽</span></div>
+            <div class="test-stars">★★★★★</div>
+            <p class="test-text">"El método me está ayudando a cerrar negocios y gestionar proveedores aquí."</p>
+        </div>
     </section>
 
+    <!-- FINAL OVERVIEW GRID -->
+    <section class="security-stack-section" style="background:#f1f5f9;">
+        <img src="9.png" alt="Solución Completa" class="security-stack-img">
+    </section>
+
+    <!-- GREEN CONVERSION BOX -->
     <section class="green-conversion-box">
         <h2>¿Listo para transformar tu futuro?</h2>
+        <p>Únete a los más de 3,200 profesionales y comienza hoy mismo tu camino.</p>
         <a href="https://pay.hotmart.com/YOUR_HOTMART_ID" class="white-cta-btn">ADQUIRIR LA GUÍA POR US$ 9.97</a>
     </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section">
+        <h2>🌎 Grupo Energía Solar: Líder en América Latina</h2>
+        <p>El Grupo Energía Solar es el referente máximo en innovación, liderando la formación profesional en Brasil, México, Colombia, Chile e Argentina.</p>
+        
+        <div class="objection-grid">
+            <div class="objection-card">
+                <strong>❌ ¿No tengo experiencia?</strong>
+                <p>El método es 100% paso a paso, diseñado para quienes empiezan desde cero absoluto.</p>
+            </div>
+            <div class="objection-card">
+                <strong>❌ ¿Es muy caro empezar?</strong>
+                <p>Te enseñamos a conseguir proveedores directos para que tu margen de lucro sea el más alto.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Grupo Energía Solar. Todos los derechos reservados.</p>
+    </footer>
+
 </div>
 
 </body>
