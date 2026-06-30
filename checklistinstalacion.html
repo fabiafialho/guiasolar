@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist Técnico de Instalación · Guía Solar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap');
+:root{--sol:#F5A623;--cielo:#0B1D35;--verde:#16A34A;--gris:#F5F7FA}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fff;color:#1A1A2E;font-size:15px;line-height:1.6}
+.capa{background:linear-gradient(135deg,#0a1628,#112240);color:white;padding:48px 24px;text-align:center}
+.badge{display:inline-block;background:rgba(245,166,35,0.2);border:1px solid rgba(245,166,35,0.4);color:var(--sol);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px}
+.capa h1{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:800;line-height:1.2;margin-bottom:10px}
+.capa h1 span{color:var(--sol)}
+.capa p{color:rgba(255,255,255,0.65);font-size:15px}
+.marca{font-family:'Space Grotesk',sans-serif;font-size:13px;color:rgba(255,255,255,0.3);margin-top:24px}
+.marca span{color:var(--sol)}
+.conteudo{max-width:680px;margin:0 auto;padding:40px 24px}
+h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--cielo);margin:36px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--gris)}
+p{color:#374151;margin-bottom:12px}
+strong{color:var(--cielo)}
+.box{border-radius:10px;padding:20px 24px;margin:20px 0}
+.box-peligro{background:#FFF5F5;border-left:4px solid #DC2626}
+.box-peligro .bt{color:#C53030;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.box-exito{background:#F0FFF4;border-left:4px solid var(--verde)}
+.box-exito .bt{color:#276749;font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.chk-section{background:white;border:2px solid #E5E7EB;border-radius:14px;overflow:hidden;margin:20px 0}
+.chk-header{background:var(--cielo);padding:14px 20px;color:white}
+.chk-header h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;margin:0}
+.chk-header span{font-size:12px;color:rgba(255,255,255,0.5)}
+.chk-item{display:flex;align-items:flex-start;gap:14px;padding:13px 20px;border-bottom:1px solid #F3F4F6;font-size:14px}
+.chk-item:last-child{border-bottom:none}
+.chk-box{width:20px;height:20px;border:2px solid #CBD5E0;border-radius:4px;flex-shrink:0;margin-top:1px}
+.chk-item strong{display:block;color:var(--cielo);margin-bottom:2px}
+.chk-item span{color:#6B7280;font-size:13px}
+.tabla-wrap{overflow-x:auto;margin:20px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.07)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead tr{background:var(--cielo);color:white}
+thead th{padding:12px 14px;text-align:left;font-weight:600;font-size:13px}
+tbody tr:nth-child(even){background:var(--gris)}
+tbody tr:nth-child(odd){background:white}
+tbody td{padding:11px 14px;border-bottom:1px solid #E5E7EB}
+tbody tr:last-child td{border-bottom:none}
+.proj-info{background:var(--gris);border-radius:12px;padding:20px;margin:20px 0}
+.proj-campo{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #E5E7EB;font-size:14px}
+.proj-campo:last-child{border-bottom:none}
+.proj-campo .pc-v{background:white;border:1px solid #E5E7EB;border-radius:6px;padding:4px 12px;min-width:140px;text-align:right;font-size:13px;color:#6B7280}
+.rodape{background:var(--cielo);color:rgba(255,255,255,0.4);text-align:center;padding:20px;font-size:12px;margin-top:40px}
+.rodape span{color:var(--sol)}
+</style>
+</head>
+<body>
+<div class="capa">
+  <div class="badge">✅ Bono Exclusivo #4</div>
+  <h1>Checklist Técnico<br><span>de Instalación Solar</span></h1>
+  <p>Paso a paso para no olvidar ningún detalle — imprime una copia por proyecto</p>
+  <div class="marca">☀️ Guía <span>Solar</span></div>
+</div>
+<div class="conteudo">
+
+  <p>Imprime este checklist y llévalo a cada instalación. Marca cada ítem conforme avanzas. Al final, el cliente firma el acta de entrega. <strong>Un proyecto bien documentado es un proyecto sin dolores de cabeza.</strong></p>
+
+  <div class="proj-info">
+    <div class="proj-campo"><span>Cliente</span><span class="pc-v">_______________________</span></div>
+    <div class="proj-campo"><span>Dirección</span><span class="pc-v">_______________________</span></div>
+    <div class="proj-campo"><span>Fecha de instalación</span><span class="pc-v">_____ / _____ / _____</span></div>
+    <div class="proj-campo"><span>Sistema (kWp)</span><span class="pc-v">_______ kWp</span></div>
+    <div class="proj-campo"><span>N° de paneles</span><span class="pc-v">_______</span></div>
+    <div class="proj-campo"><span>Inversor (marca/kW)</span><span class="pc-v">_______________________</span></div>
+    <div class="proj-campo"><span>Técnico responsable</span><span class="pc-v">_______________________</span></div>
+  </div>
+
+  <h2>1 — Antes de Llegar al Sitio</h2>
+  <div class="chk-section">
+    <div class="chk-header"><h3>📋 Preparación Previa</h3></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Contrato firmado y anticipo recibido</strong><span>Nunca iniciar instalación sin estas dos condiciones cumplidas</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Plano de instalación revisado</strong><span>Layout de paneles, recorrido de cableado y diagrama eléctrico definidos</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Equipos y materiales verificados</strong><span>Contar paneles, verificar integridad del inversor y protecciones</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>EPP completo para toda la cuadrilla</strong><span>Arnés, casco, guantes dieléctricos, calzado de seguridad</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Herramientas verificadas y cargadas</strong><span>Multímetro, taladro, torquímetro, crimpadora MC4, nivel</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Cliente informado sobre la interrupción eléctrica</strong><span>Avisar horario y duración estimada del corte</span></div></div>
+  </div>
+
+  <h2>2 — Estructura y Paneles</h2>
+  <div class="chk-section">
+    <div class="chk-header"><h3>🏗️ Montaje Estructural</h3></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Vigas localizadas con detector</strong><span>Todos los anclajes van sobre vigas — nunca sobre teja libre</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Sellante aplicado en todas las perforaciones</strong><span>Silicona bicomponente o sellante específico para tejados</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Rieles nivelados (verificar con nivel)</strong><span>Rieles fuera de nivel generan problemas estéticos y estructurales</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Torque de anclajes verificado con torquímetro</strong><span>Seguir especificación del fabricante de la estructura</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Todos los paneles fijados y alineados</strong><span>Verificar visualmente desde el suelo: línea recta, sin desalineación</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Abrazaderas intermedias y finales correctas</strong><span>Intermedias entre paneles, finales en los extremos del riel</span></div></div>
+  </div>
+
+  <h2>3 — Cableado y Conexiones CC</h2>
+  <div class="chk-section">
+    <div class="chk-header"><h3>⚡ Lado Corriente Continua</h3></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Sección de cable correcta (mínimo 4mm² CC)</strong><span>Cable solar certificado UV — nunca cable eléctrico convencional en el tejado</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Conectores MC4 de una sola marca</strong><span>Nunca mezclar marcas de MC4 — riesgo de arco eléctrico e incendio</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Polaridad CC verificada con multímetro</strong><span>+ en rojo, – en negro. Polaridad invertida daña el inversor</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Tensión de cada string verificada</strong><span>Debe ser igual a la suma de Voc de los paneles ±5%</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Cableado protegido con canaleta o conduit UV</strong><span>Cable expuesto se degrada en 3–5 años bajo el sol</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>DPS CC instalado en la caja de conexiones</strong><span>Antes del inversor, correctamente dimensionado</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Fusibles por string instalados</strong><span>Protección individual de cada string</span></div></div>
+  </div>
+
+  <h2>4 — Inversor y Conexión CA</h2>
+  <div class="chk-section">
+    <div class="chk-header"><h3>🔌 Inversor y Cuadro Eléctrico</h3></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Inversor fijado en área sombreada y ventilada</strong><span>Mínimo 30cm de espacio libre en todos los lados</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Cuadro eléctrico desconectado antes de la conexión CA</strong><span>Interruptor general apagado — verificar con multímetro antes de tocar</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Breaker dedicado instalado en el cuadro</strong><span>Exclusivo para el sistema solar, dimensionado correctamente</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>DPS CA instalado junto al breaker</strong><span>Protección contra sobretensiones en el lado de CA</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Tensión CA de salida verificada</strong><span>Nominal local ±5% (120V, 127V o 220V según el país)</span></div></div>
+  </div>
+
+  <h2>5 — Puesta a Tierra</h2>
+  <div class="chk-section">
+    <div class="chk-header"><h3>🌍 Aterramiento del Sistema</h3></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Toda la estructura metálica conectada a tierra</strong><span>Conductor de tierra mínimo 6mm² conectando toda la estructura</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Inversor conectado a tierra</strong><span>Terminal de tierra del inversor conectada al sistema existente</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Resistencia de aterramiento medida: ≤ 10Ω</strong><span>Si supera 10Ω, instalar electrodo adicional antes de entregar</span></div></div>
+  </div>
+
+  <h2>6 — Puesta en Marcha</h2>
+  <div class="chk-section">
+    <div class="chk-header"><h3>☀️ Encendido y Verificación Final</h3></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Sistema energizado y generando correctamente</strong><span>Verificar en display o app del inversor — sin errores activos</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Generación visible en tiempo real</strong><span>Compatible con la irradiación solar del momento</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Cliente con acceso al portal de monitoreo</strong><span>Usuario creado y contraseña entregada al cliente</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Cliente instruido sobre el funcionamiento básico</strong><span>Explicar: cómo ver la generación, qué esperar en días nublados, el sistema en apagones (On-Grid)</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Temperatura del inversor verificada</strong><span>Menos de 60°C en operación normal. Usar termómetro infrarrojo</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Área limpia — todos los residuos retirados</strong><span>Dejar el lugar igual o mejor que como se encontró</span></div></div>
+  </div>
+
+  <h2>7 — Documentos Entregados al Cliente</h2>
+  <div class="chk-section">
+    <div class="chk-header"><h3>📄 Entrega de Documentación</h3></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Contrato original entregado al cliente</strong><span>Con todas las firmas y fecha</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Carta de garantía entregada</strong><span>Con especificación de cada componente y plazo de garantía</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Manual del inversor entregado</strong><span>Versión en español si está disponible</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Acta de entrega firmada por el cliente</strong><span>Confirma que recibió el sistema en condiciones satisfactorias</span></div></div>
+    <div class="chk-item"><div class="chk-box"></div><div><strong>Saldo final cobrado</strong><span>100% del proyecto cobrado antes de salir del sitio</span></div></div>
+  </div>
+
+  <h2>Verificaciones Eléctricas — Tabla de Referencia</h2>
+  <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Verificación</th><th>Instrumento</th><th>Valor Esperado</th></tr></thead>
+      <tbody>
+        <tr><td>Tensión CC por string</td><td>Multímetro</td><td>Suma de Voc de paneles ±5%</td></tr>
+        <tr><td>Corriente CC por string</td><td>Pinza amperimétrica</td><td>Próxima al Isc del panel</td></tr>
+        <tr><td>Polaridad CC</td><td>Multímetro</td><td>+ en rojo, – en negro</td></tr>
+        <tr><td>Tensión CA salida inversor</td><td>Multímetro</td><td>Nominal ±5%</td></tr>
+        <tr><td>Resistencia de tierra</td><td>Terrómetro</td><td>Menor que 10Ω</td></tr>
+        <tr><td>Temperatura inversor</td><td>Termómetro IR</td><td>Menor que 60°C</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-exito">
+    <div class="bt">✅ Acta de Entrega</div>
+    <p>El cliente firmó y recibió el sistema en condiciones satisfactorias.<br><br>
+    _______________________________<br>
+    Firma del Cliente &nbsp;&nbsp; Fecha: ___/___/___<br><br>
+    _______________________________<br>
+    Firma del Técnico Responsable &nbsp;&nbsp; Fecha: ___/___/___</p>
+  </div>
+
+</div>
+<div class="rodape">© 2024 <span>Guía Solar</span> — Bono exclusivo para compradores.</div>
+</body>
+</html>

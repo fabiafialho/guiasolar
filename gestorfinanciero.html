@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestor Financiero de Proyectos Solares · Guía Solar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap');
+:root { --sol:#F5A623; --cielo:#0B1D35; --verde:#16A34A; --rojo:#DC2626; --gris:#F5F7FA; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#fff; color:#1A1A2E; font-size:15px; line-height:1.6; }
+.capa { background:linear-gradient(135deg,#0a2010,#1a4020); color:white; padding:48px 24px; text-align:center; }
+.badge { display:inline-block; background:rgba(245,166,35,0.2); border:1px solid rgba(245,166,35,0.4); color:var(--sol); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:20px; }
+.capa h1 { font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:800; line-height:1.2; margin-bottom:10px; }
+.capa h1 span { color:var(--sol); }
+.capa p { color:rgba(255,255,255,0.65); font-size:15px; }
+.marca { font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.3); margin-top:24px; }
+.marca span { color:var(--sol); }
+.conteudo { max-width:680px; margin:0 auto; padding:40px 24px; }
+h2 { font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:var(--cielo); margin:36px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--gris); }
+p { color:#374151; margin-bottom:12px; }
+strong { color:var(--cielo); }
+.box { border-radius:10px; padding:20px 24px; margin:20px 0; }
+.box-info { background:#EBF8FF; border-left:4px solid #3182CE; }
+.box-info .bt { color:#2B6CB0; font-weight:700; font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.box-exito { background:#F0FFF4; border-left:4px solid var(--verde); }
+.box-exito .bt { color:#276749; font-weight:700; font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.projeto { background:white; border:2px solid #E5E7EB; border-radius:14px; overflow:hidden; margin:24px 0; }
+.projeto-header { background:var(--cielo); padding:16px 20px; color:white; display:flex; justify-content:space-between; align-items:center; }
+.projeto-header h3 { font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; margin:0; }
+.projeto-header span { font-size:12px; color:rgba(255,255,255,0.5); }
+.proj-linha { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; border-bottom:1px solid #F3F4F6; font-size:14px; }
+.proj-linha:last-child { border-bottom:none; }
+.proj-linha .pl-nome { color:#374151; flex:1; }
+.proj-linha .pl-valor { font-family:'Space Grotesk',sans-serif; font-weight:600; }
+.pl-valor.custo { color:var(--rojo); }
+.pl-valor.ganho { color:var(--verde); }
+.pl-valor.campo { background:var(--gris); padding:4px 12px; border-radius:6px; color:var(--cielo); min-width:120px; text-align:right; }
+.proj-total { background:#FFFBEB; border-top:2px solid var(--sol); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; }
+.proj-total span { font-size:13px; color:#92400E; font-weight:600; }
+.proj-total strong { font-family:'Space Grotesk',sans-serif; font-size:22px; color:var(--cielo); }
+.formula { background:var(--cielo); color:white; border-radius:12px; padding:24px; margin:20px 0; text-align:center; }
+.formula-label { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--sol); margin-bottom:12px; }
+.formula-eq { font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; line-height:1.8; }
+.formula-eq span { color:var(--sol); }
+.tabla-wrap { overflow-x:auto; margin:20px 0; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+thead tr { background:var(--cielo); color:white; }
+thead th { padding:12px 10px; text-align:left; font-weight:600; font-size:12px; }
+tbody tr:nth-child(even) { background:var(--gris); }
+tbody tr:nth-child(odd) { background:white; }
+tbody td { padding:10px; border-bottom:1px solid #E5E7EB; }
+tbody tr:last-child td { border-bottom:none; font-weight:700; background:#FFFBEB; }
+.tg { background:#DCFCE7; color:#166534; padding:2px 8px; border-radius:6px; font-size:12px; font-weight:600; }
+.tr { background:#FEE2E2; color:#991B1B; padding:2px 8px; border-radius:6px; font-size:12px; font-weight:600; }
+.rodape { background:var(--cielo); color:rgba(255,255,255,0.4); text-align:center; padding:20px; font-size:12px; margin-top:40px; }
+.rodape span { color:var(--sol); }
+</style>
+</head>
+<body>
+<div class="capa">
+  <div class="badge">💰 Bono Exclusivo #2</div>
+  <h1>Gestor Financiero de<br><span>Proyectos Solares</span></h1>
+  <p>Organiza costos, calcula tu margen real y controla el flujo de caja de cada instalación</p>
+  <div class="marca">☀️ Guía <span>Solar</span></div>
+</div>
+<div class="conteudo">
+  <h2>¿Por qué controlar las finanzas de cada proyecto?</h2>
+  <p>La mayoría de los instaladores sabe cuánto cobra, pero no sabe exactamente cuánto gana. Sin control financiero por proyecto, puedes estar trabajando mucho y ganando poco — o incluso perdiendo dinero sin saberlo.</p>
+  <div class="box box-info">
+    <div class="bt">💡 Cómo usar</div>
+    <p style="margin:0">Completa una ficha por proyecto. Archívala junto al contrato. Al final del mes, suma todas las fichas para ver tu rendimiento real. <strong>La claridad financiera es lo que separa un negocio rentable de uno que solo parece rentable.</strong></p>
+  </div>
+  <h2>Ficha de Proyecto</h2>
+  <div class="projeto">
+    <div class="projeto-header"><h3>DATOS GENERALES</h3><span>Una ficha por instalación</span></div>
+    <div class="proj-linha"><span class="pl-nome">Cliente</span><span class="pl-valor campo">_______________________</span></div>
+    <div class="proj-linha"><span class="pl-nome">Fecha</span><span class="pl-valor campo">_____ / _____ / _____</span></div>
+    <div class="proj-linha"><span class="pl-nome">Sistema (kWp)</span><span class="pl-valor campo">_______ kWp</span></div>
+    <div class="proj-linha"><span class="pl-nome"><strong>PRECIO DE VENTA</strong></span><span class="pl-valor ganho">US$ _________</span></div>
+  </div>
+  <h2>Costos Directos</h2>
+  <div class="projeto">
+    <div class="projeto-header"><h3>COSTOS DIRECTOS</h3><span>Lo que sale de tu bolsillo</span></div>
+    <div class="proj-linha"><span class="pl-nome">Paneles solares</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Inversor</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Estructura de fijación</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Cableado + protecciones</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Materiales menores</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Mano de obra</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Transporte</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Trámite conexión red</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-total"><span>SUBTOTAL COSTOS DIRECTOS</span><strong>US$ _______</strong></div>
+  </div>
+  <h2>Costos Indirectos</h2>
+  <div class="projeto">
+    <div class="projeto-header"><h3>COSTOS INDIRECTOS</h3><span>Proporción de gastos fijos del mes</span></div>
+    <div class="proj-linha"><span class="pl-nome">Proporción gastos fijos del negocio</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Proporción de marketing</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Tiempo de visita + propuesta</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Provisión garantía/retrabajo (2%)</span><span class="pl-valor campo">US$ _______</span></div>
+    <div class="proj-total"><span>SUBTOTAL COSTOS INDIRECTOS</span><strong>US$ _______</strong></div>
+  </div>
+  <h2>Resultado del Proyecto</h2>
+  <div class="formula">
+    <div class="formula-label">Margen Bruto</div>
+    <div class="formula-eq">Margen (%) = (<span>Precio Venta – Costo Total</span>) ÷ <span>Precio Venta</span> × 100</div>
+  </div>
+  <div class="projeto">
+    <div class="projeto-header"><h3>RESULTADO FINAL</h3><span>Cuánto ganaste realmente</span></div>
+    <div class="proj-linha"><span class="pl-nome">Precio de venta</span><span class="pl-valor ganho">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">( – ) Total de costos</span><span class="pl-valor custo">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome"><strong>GANANCIA BRUTA</strong></span><span class="pl-valor ganho">US$ _______</span></div>
+    <div class="proj-linha"><span class="pl-nome">Margen bruto</span><span class="pl-valor ganho">_______ %</span></div>
+    <div class="proj-total"><span>¿Proyecto rentable?</span><strong>[ ] SÍ &nbsp; [ ] NO</strong></div>
+  </div>
+  <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Margen</th><th>Evaluación</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td><strong>+40%</strong></td><td><span class="tg">Excelente</span></td><td>Mantén este precio</td></tr>
+        <tr><td><strong>35–40%</strong></td><td><span class="tg">Bueno</span></td><td>Negocio sano</td></tr>
+        <tr><td><strong>25–35%</strong></td><td><span class="tg">Aceptable</span></td><td>Optimiza costos</td></tr>
+        <tr><td><strong>15–25%</strong></td><td><span class="tr">Bajo</span></td><td>Renegocia equipos</td></tr>
+        <tr><td><strong>-15%</strong></td><td><span class="tr">Peligroso</span></td><td>Revisa todo el modelo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h2>Control Mensual</h2>
+  <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Cliente</th><th>kWp</th><th>Venta</th><th>Costo</th><th>Ganancia</th><th>%</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>__________</td><td>___</td><td>US$______</td><td>US$______</td><td>US$______</td><td>___%</td></tr>
+        <tr><td>2</td><td>__________</td><td>___</td><td>US$______</td><td>US$______</td><td>US$______</td><td>___%</td></tr>
+        <tr><td>3</td><td>__________</td><td>___</td><td>US$______</td><td>US$______</td><td>US$______</td><td>___%</td></tr>
+        <tr><td>4</td><td>__________</td><td>___</td><td>US$______</td><td>US$______</td><td>US$______</td><td>___%</td></tr>
+        <tr><td>5</td><td>__________</td><td>___</td><td>US$______</td><td>US$______</td><td>US$______</td><td>___%</td></tr>
+        <tr><td colspan="3"><strong>TOTAL MES</strong></td><td><strong>US$______</strong></td><td><strong>US$______</strong></td><td><strong>US$______</strong></td><td><strong>___%</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box box-exito">
+    <div class="bt">✅ Regla de Oro</div>
+    <p style="margin:0">Nunca inicies una instalación sin el anticipo del 50% en tu cuenta. El anticipo cubre equipos sin usar tu capital. El saldo final se cobra en la puesta en marcha — nunca después.</p>
+  </div>
+</div>
+<div class="rodape">© 2024 <span>Guía Solar</span> — Bono exclusivo para compradores.</div>
+</body>
+</html>

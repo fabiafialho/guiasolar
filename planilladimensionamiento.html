@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planilla Pro — Dimensionamiento Off-Grid · Guía Solar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap');
+:root { --sol: #F5A623; --cielo: #0B1D35; --verde: #16A34A; --gris: #F5F7FA; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#fff; color:#1A1A2E; font-size:15px; line-height:1.6; }
+
+.capa { background:linear-gradient(135deg,#0B1D35,#1A3A5C); color:white; padding:48px 24px; text-align:center; }
+.badge { display:inline-block; background:rgba(245,166,35,0.2); border:1px solid rgba(245,166,35,0.4); color:var(--sol); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:20px; }
+.capa h1 { font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:800; line-height:1.2; margin-bottom:10px; }
+.capa h1 span { color:var(--sol); }
+.capa p { color:rgba(255,255,255,0.65); font-size:15px; margin-bottom:8px; }
+.marca { font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.3); margin-top:24px; }
+.marca span { color:var(--sol); }
+
+.conteudo { max-width:680px; margin:0 auto; padding:40px 24px; }
+h2 { font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:700; color:var(--cielo); margin:36px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--gris); }
+h3 { font-size:15px; font-weight:600; color:#1A3A5C; margin:24px 0 10px; }
+p { color:#374151; margin-bottom:12px; }
+strong { color:var(--cielo); }
+
+.box { border-radius:10px; padding:20px 24px; margin:20px 0; }
+.box-info { background:#EBF8FF; border-left:4px solid #3182CE; }
+.box-info .bt { color:#2B6CB0; font-weight:700; font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.box-exito { background:#F0FFF4; border-left:4px solid var(--verde); }
+.box-exito .bt { color:#276749; font-weight:700; font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+
+.formula { background:var(--cielo); color:white; border-radius:12px; padding:24px; margin:20px 0; text-align:center; }
+.formula-label { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--sol); margin-bottom:12px; }
+.formula-eq { font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:700; line-height:1.7; }
+.formula-eq span { color:var(--sol); }
+
+.tabla-wrap { overflow-x:auto; margin:20px 0; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+thead tr { background:var(--cielo); color:white; }
+thead th { padding:12px 14px; text-align:left; font-weight:600; font-size:13px; }
+tbody tr:nth-child(even) { background:var(--gris); }
+tbody tr:nth-child(odd) { background:white; }
+tbody td { padding:11px 14px; border-bottom:1px solid #E5E7EB; }
+tbody tr:last-child td { border-bottom:none; font-weight:700; background:#FFFBEB; }
+
+.campo { background:white; border:2px solid #E5E7EB; border-radius:10px; padding:20px 24px; margin:12px 0; }
+.campo-label { font-size:12px; font-weight:700; color:var(--sol); letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+.campo-linha { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #F3F4F6; font-size:14px; }
+.campo-linha:last-child { border-bottom:none; }
+.campo-linha .cl-nome { color:#374151; }
+.campo-linha .cl-valor { font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--cielo); background:var(--gris); padding:4px 12px; border-radius:6px; min-width:80px; text-align:center; }
+.campo-linha .cl-valor.sol { color:var(--sol); }
+.campo-linha .cl-valor.verde { color:var(--verde); }
+
+.pasos { list-style:none; counter-reset:paso; margin:20px 0; }
+.pasos li { counter-increment:paso; display:flex; gap:14px; margin-bottom:16px; align-items:flex-start; }
+.pnum { background:var(--cielo); color:var(--sol); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; min-width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.pnum::before { content:counter(paso); }
+.pcon strong { display:block; font-size:14px; margin-bottom:3px; }
+.pcon p { font-size:13px; color:#6B7280; margin:0; }
+
+.rodape { background:var(--cielo); color:rgba(255,255,255,0.4); text-align:center; padding:20px; font-size:12px; margin-top:40px; }
+.rodape span { color:var(--sol); }
+</style>
+</head>
+<body>
+
+<div class="capa">
+  <div class="badge">📊 Bono Exclusivo #1</div>
+  <h1>Planilla Pro:<br><span>Dimensionamiento Off-Grid</span></h1>
+  <p>Calcula exacto de paneles y baterías sin cometer errores costosos</p>
+  <div class="marca">☀️ Guía <span>Solar</span></div>
+</div>
+
+<div class="conteudo">
+
+  <h2>¿Para qué sirve esta planilla?</h2>
+  <p>El dimensionamiento Off-Grid es el cálculo que más asusta a los instaladores principiantes — y el que más errores genera. Un sistema mal dimensionado deja al cliente sin energía de noche, sobrecarga las baterías o desperdicia paneles innecesarios.</p>
+  <p>Esta planilla te lleva paso a paso por el proceso completo: desde levantar las cargas hasta definir el banco de baterías y el controlador de carga.</p>
+
+  <div class="box box-info">
+    <div class="bt">💡 Cómo usar</div>
+    <p style="margin:0">Sigue los pasos en orden. Completa los campos en gris con los datos de tu proyecto. Los resultados aparecen automáticamente al final de cada sección. <strong>Imprime una copia por proyecto y archívala junto al contrato.</strong></p>
+  </div>
+
+  <h2>Paso 1 — Levantamiento de Cargas</h2>
+  <p>Lista todos los aparatos eléctricos del cliente, su potencia y cuántas horas al día los usa. Pide que sea honesto — muchos subestiman el uso real del refrigerador o la TV.</p>
+
+  <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Aparato</th><th>Potencia (W)</th><th>Horas/día</th><th>Wh/día</th></tr></thead>
+      <tbody>
+        <tr><td>Iluminación LED</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td>Refrigerador</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td>Televisor</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td>Bomba de agua</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td>Cargadores / celulares</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td>Ventilador</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td>Otro: ___________</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td>Otro: ___________</td><td>_______</td><td>_______</td><td>_______</td></tr>
+        <tr><td><strong>TOTAL CONSUMO DIARIO</strong></td><td>—</td><td>—</td><td><strong>_______ Wh/día</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-exito">
+    <div class="bt">✅ Referencia de potencias típicas</div>
+    <p>Foco LED 10W · Refrigerador 100–180W (8h equiv.) · TV 32" 60W · TV 50" 100W · Bomba ½ HP 370W · Ventilador techo 75W · Lavadora 500W · Microondas 1.000W · Aire acondicionado 1.500–3.000W</p>
+  </div>
+
+  <h2>Paso 2 — Datos del Sistema</h2>
+
+  <div class="campo">
+    <div class="campo-label">Ingresa los datos del proyecto</div>
+    <div class="campo-linha"><span class="cl-nome">Consumo diario total (del paso 1)</span><span class="cl-valor">_______ Wh</span></div>
+    <div class="campo-linha"><span class="cl-nome">HSP de la localidad (consultar Global Solar Atlas)</span><span class="cl-valor">_______ h</span></div>
+    <div class="campo-linha"><span class="cl-nome">Factor de desempeño (PR) — usar 0.80</span><span class="cl-valor">0.80</span></div>
+    <div class="campo-linha"><span class="cl-nome">Días de autonomía deseados (recomendado: 2)</span><span class="cl-valor">_______ días</span></div>
+    <div class="campo-linha"><span class="cl-nome">Tensión del banco de baterías</span><span class="cl-valor">12 / 24 / 48V</span></div>
+    <div class="campo-linha"><span class="cl-nome">Tecnología de batería elegida</span><span class="cl-valor">LiFePO4 / AGM</span></div>
+    <div class="campo-linha"><span class="cl-nome">DoD de la batería (LiFePO4=80% · AGM=50%)</span><span class="cl-valor">_______ %</span></div>
+    <div class="campo-linha"><span class="cl-nome">Potencia del panel elegido</span><span class="cl-valor">_______ Wp</span></div>
+  </div>
+
+  <h2>Paso 3 — Cálculo de los Paneles</h2>
+
+  <div class="formula">
+    <div class="formula-label">Potencia del Sistema Fotovoltaico</div>
+    <div class="formula-eq">
+      kWp = <span>Consumo Diario (Wh)</span> ÷ (<span>HSP</span> × <span>PR 0.80</span> × <span>1.000</span>)
+    </div>
+  </div>
+
+  <div class="campo">
+    <div class="campo-label">Resultado — Paneles</div>
+    <div class="campo-linha"><span class="cl-nome">Potencia mínima del sistema</span><span class="cl-valor sol">_______ kWp</span></div>
+    <div class="campo-linha"><span class="cl-nome">Número de paneles necesarios</span><span class="cl-valor sol">_______ un.</span></div>
+    <div class="campo-linha"><span class="cl-nome">Potencia total instalada</span><span class="cl-valor sol">_______ Wp</span></div>
+  </div>
+
+  <div class="box box-info">
+    <div class="bt">📐 Ejemplo resuelto</div>
+    <p>Consumo: 2.500 Wh/día · HSP: 5.5 · Panel: 400 Wp<br>
+    kWp = 2.500 ÷ (5.5 × 0.80 × 1.000) = <strong>0.568 kWp</strong><br>
+    Paneles = 568 ÷ 400 = 1.42 → <strong>2 paneles de 400 Wp</strong></p>
+  </div>
+
+  <h2>Paso 4 — Cálculo del Banco de Baterías</h2>
+
+  <div class="formula">
+    <div class="formula-label">Capacidad del Banco de Baterías</div>
+    <div class="formula-eq">
+      Ah = (<span>Consumo Diario (Wh)</span> × <span>Días Autonomía</span>) ÷ (<span>Tensión (V)</span> × <span>DoD</span>)
+    </div>
+  </div>
+
+  <div class="campo">
+    <div class="campo-label">Resultado — Baterías</div>
+    <div class="campo-linha"><span class="cl-nome">Capacidad total necesaria del banco</span><span class="cl-valor sol">_______ Ah</span></div>
+    <div class="campo-linha"><span class="cl-nome">Número de baterías (capacidad unitaria: ___ Ah)</span><span class="cl-valor sol">_______ un.</span></div>
+    <div class="campo-linha"><span class="cl-nome">Configuración (serie / paralelo)</span><span class="cl-valor">_______</span></div>
+  </div>
+
+  <div class="box box-info">
+    <div class="bt">📐 Ejemplo resuelto</div>
+    <p>Consumo: 2.500 Wh/día · Autonomía: 2 días · Banco: 48V · DoD LiFePO4: 80%<br>
+    Ah = (2.500 × 2) ÷ (48 × 0.80) = <strong>130 Ah</strong><br>
+    → 2 baterías LiFePO4 de 100Ah en paralelo = <strong>200 Ah totales</strong> ✅</p>
+  </div>
+
+  <h2>Paso 5 — Controlador de Carga MPPT</h2>
+
+  <div class="formula">
+    <div class="formula-label">Corriente del Controlador</div>
+    <div class="formula-eq">
+      A = <span>Potencia Total Paneles (Wp)</span> ÷ <span>Tensión del Banco (V)</span>
+    </div>
+  </div>
+
+  <div class="campo">
+    <div class="campo-label">Resultado — Controlador</div>
+    <div class="campo-linha"><span class="cl-nome">Corriente calculada</span><span class="cl-valor sol">_______ A</span></div>
+    <div class="campo-linha"><span class="cl-nome">Controlador recomendado (próximo superior)</span><span class="cl-valor verde">_______ A / ___V</span></div>
+  </div>
+
+  <h2>Paso 6 — Resumen Final del Sistema</h2>
+
+  <div class="campo">
+    <div class="campo-label">Lista de materiales del proyecto</div>
+    <div class="campo-linha"><span class="cl-nome">Paneles solares (___ Wp)</span><span class="cl-valor verde">_______ unidades</span></div>
+    <div class="campo-linha"><span class="cl-nome">Controlador de carga MPPT (___ A)</span><span class="cl-valor verde">1 unidad</span></div>
+    <div class="campo-linha"><span class="cl-nome">Banco de baterías (___ Ah · ___V)</span><span class="cl-valor verde">_______ unidades</span></div>
+    <div class="campo-ligne"><span class="cl-nome">Inversor Off-Grid (___ W)</span><span class="cl-valor verde">1 unidad</span></div>
+    <div class="campo-linha"><span class="cl-nome">Estructura de fijación</span><span class="cl-valor verde">1 kit</span></div>
+    <div class="campo-linha"><span class="cl-nome">Cableado CC (___ mm²)</span><span class="cl-valor verde">_______ metros</span></div>
+    <div class="campo-linha"><span class="cl-nome">Protecciones (fusibles, DPS, interruptores)</span><span class="cl-valor verde">1 kit</span></div>
+  </div>
+
+  <h2>Referencia Rápida — Tecnologías de Batería</h2>
+
+  <div class="tabla-wrap">
+    <table>
+      <thead><tr><th>Tecnología</th><th>DoD Máx.</th><th>Ciclos</th><th>Precio Rel.</th><th>Recomendación</th></tr></thead>
+      <tbody>
+        <tr><td><strong>LiFePO4</strong></td><td>80–90%</td><td>3.000–6.000</td><td>Alto</td><td>✅ Mejor opción</td></tr>
+        <tr><td><strong>AGM</strong></td><td>50%</td><td>500–800</td><td>Bajo</td><td>Proyectos simples</td></tr>
+        <tr><td><strong>Gel</strong></td><td>50%</td><td>700–1.000</td><td>Medio-bajo</td><td>Proyectos simples</td></tr>
+        <tr><td><strong>Plomo-Carbono</strong></td><td>70%</td><td>1.500–2.500</td><td>Medio</td><td>✅ Buena alternativa</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-exito">
+    <div class="bt">✅ Importante</div>
+    <p style="margin:0">Siempre redondea el número de paneles y baterías hacia <strong>arriba</strong> — nunca hacia abajo. Un sistema levemente sobredimensionado funciona mejor y el cliente queda más satisfecho. Un sistema subdimensionado genera reclamaciones y retrabajo costoso.</p>
+  </div>
+
+</div>
+
+<div class="rodape">© 2024 <span>Guía Solar</span> — Bono exclusivo para compradores. Uso personal solamente.</div>
+</body>
+</html>
