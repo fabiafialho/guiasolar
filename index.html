@@ -89,8 +89,11 @@ nav { background:#1565C0; padding:12px 20px; display:flex; justify-content:space
 .bonus-sec { background:#0D47A1; padding:44px 20px; }
 .bonus-sec h2 { font-family:'Poppins',sans-serif; font-size:24px; font-weight:900; color:white; text-align:center; margin-bottom:6px; }
 .bonus-sub { font-size:14px; color:rgba(255,255,255,0.7); text-align:center; margin-bottom:28px; }
-.bonus-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:700px; margin:0 auto; }
-@media(min-width:500px){ .bonus-grid { gap:20px; } }
+
+/* 1 por linha no mobile, 2 no desktop */
+.bonus-grid { display:grid; grid-template-columns:1fr; gap:14px; max-width:700px; margin:0 auto; }
+@media(min-width:600px){ .bonus-grid { grid-template-columns:1fr 1fr; gap:20px; } }
+
 .bonus-card { background:#1565C0; border-radius:12px; overflow:hidden; text-align:center; }
 .bonus-card img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
 .bonus-card-body { padding:14px 12px; }
@@ -110,12 +113,10 @@ nav { background:#1565C0; padding:12px 20px; display:flex; justify-content:space
 /* GARANTIA */
 .garantia-sec { background:white; padding:0; text-align:center; }
 .garantia-sec img { max-width:100%; width:100%; margin:0 auto; display:block; }
-.garantia-sec h2 { font-family:'Poppins',sans-serif; font-size:22px; font-weight:800; color:#111; margin-bottom:10px; }
-.garantia-sec p { font-size:15px; color:#555; max-width:420px; margin:0 auto; line-height:1.65; }
 
-/* CHECKOUT BANNER */
-.banner-wrap { background:white; padding:20px; text-align:center; border-top:1px solid #F3F4F6; }
-.banner-wrap img { max-width:100%; width:100%; margin:0 auto; display:block; border-radius:10px; }
+/* BANNER WRAP — largura total sem padding */
+.banner-wrap { background:white; padding:0; text-align:center; }
+.banner-wrap img { width:100%; display:block; }
 
 /* DEPOIMENTOS */
 .depoi-sec { background:#F5F7FA; padding:44px 20px; }
@@ -207,7 +208,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
     <a href="#testimonios">Testimonios</a>
     <a href="#preguntas">Preguntas</a>
   </div>
-  <a href=https://pay.hotmart.com/P106540600T?checkoutMode=10" class="nav-cta">Comprar Ahora</a>
+  <a href="https://pay.hotmart.com/P106540600T?checkoutMode=10" class="nav-cta">Comprar Ahora</a>
 </nav>
 
 <!-- HERO -->
@@ -223,7 +224,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
       <p class="hero-social">Más de 3,200 profesionales ya han transformado sus carreras con este método.</p>
       <div class="hero-stars">⭐⭐⭐⭐⭐ <span style="font-size:14px;color:rgba(255,255,255,0.8)">4.8/5 estrellas</span></div>
     </div>
-    <!-- img 1 -->
     <div class="hero-img-wrap">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/img%201.png" alt="Guía Solar">
     </div>
@@ -248,7 +248,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
 <!-- MÓDULOS -->
 <section class="modulos-sec" id="modulos">
   <div class="modulos-inner">
-    <!-- img 2 -->
     <div class="modulos-img">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/img2.png" alt="Manual Solar">
     </div>
@@ -278,7 +277,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   <p class="bonus-sub">Diseñados para eliminar tus miedos y acelerar tus ganancias en el sector solar.</p>
 
   <div class="bonus-grid">
-    <!-- dimensionamiento -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/dimensionamiento.png" alt="Planilla Dimensionamiento">
       <div class="bonus-card-body">
@@ -287,8 +285,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
         <div class="bonus-preco"><span class="bonus-de">US$ 37</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
       </div>
     </div>
-
-    <!-- control financiero -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/control%20financiero.png" alt="Control Financiero">
       <div class="bonus-card-body">
@@ -297,8 +293,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
         <div class="bonus-preco"><span class="bonus-de">US$ 27</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
       </div>
     </div>
-
-    <!-- guia de herramientas -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/guia%20de%20herramientas.png" alt="Guía de Herramientas">
       <div class="bonus-card-body">
@@ -307,8 +301,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
         <div class="bonus-preco"><span class="bonus-de">US$ 34</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
       </div>
     </div>
-
-    <!-- herramientas (checklist) -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/herramientas.png" alt="Checklist Solar">
       <div class="bonus-card-body">
@@ -333,9 +325,8 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   </div>
 </section>
 
-<!-- GARANTIA -->
+<!-- GARANTIA (banner 1) -->
 <section class="garantia-sec">
-  <!-- banner 1 -->
   <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/banner%201.png" alt="Garantia 30 dias">
 </section>
 
@@ -387,12 +378,11 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   </div>
 </section>
 
-  <!-- BANNER CHECKOUT -->
+<!-- BANNER 2 — largura total -->
 <div class="banner-wrap">
-  <!-- banner 2 -->
   <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/banner%202.png" alt="Checkout seguro">
 </div>
-  
+
 <!-- OFERTA FINAL -->
 <section class="oferta-final">
   <div class="of-selos">
@@ -413,7 +403,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
     <li>Actualizaciones Gratis Incluidas</li>
     <li>Garantía Total de Satisfacción</li>
   </ul>
-  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/compra-segura-hotmart-w1000.png" alt="Compra segura" style="max-width:100%;width:100%;margin:16px auto 0;display:block;border-radius:10px;">
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/compra-segura-hotmart-w1000.png" alt="Compra segura" style="max-width:480px;width:100%;margin:16px auto 0;display:block;">
 </section>
 
 <!-- GRUPO -->
