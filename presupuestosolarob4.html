@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Template de Presupuesto Solar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800;900&display=swap');
+
+:root {
+  --azul: #0B1D35;
+  --azul-med: #1565C0;
+  --sol: #F5A623;
+  --verde: #16A34A;
+  --gris: #F5F7FA;
+  --borda: #E2E8F0;
+  --texto: #1A1A2E;
+  --suave: #6B7280;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--gris); color:var(--texto); }
+
+/* HEADER */
+.header { background:linear-gradient(135deg,#0B1D35,#1565C0); color:white; padding:28px 20px; text-align:center; }
+.header-badge { display:inline-block; background:rgba(245,166,35,0.2); border:1px solid rgba(245,166,35,0.4); color:var(--sol); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:12px; }
+.header h1 { font-family:'Poppins',sans-serif; font-size:22px; font-weight:900; margin-bottom:6px; }
+.header h1 span { color:var(--sol); }
+.header p { font-size:13px; color:rgba(255,255,255,0.7); }
+
+/* TABS */
+.tabs { display:flex; background:white; border-bottom:2px solid var(--borda); }
+.tab { flex:1; padding:14px 8px; text-align:center; font-size:13px; font-weight:600; color:var(--suave); cursor:pointer; border-bottom:3px solid transparent; margin-bottom:-2px; transition:all 0.2s; }
+.tab.ativo { color:var(--azul-med); border-bottom-color:var(--azul-med); }
+
+/* PAINEL */
+.painel { display:none; padding:16px; }
+.painel.ativo { display:block; }
+
+/* CARD */
+.card { background:white; border-radius:14px; padding:20px; margin-bottom:14px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+.card-titulo { font-family:'Poppins',sans-serif; font-size:14px; font-weight:800; color:var(--azul); margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+.card-titulo span { font-size:18px; }
+
+/* CAMPOS */
+.campo-grupo { margin-bottom:14px; }
+.campo-grupo label { display:block; font-size:12px; font-weight:600; color:var(--suave); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:5px; }
+.campo-grupo input, .campo-grupo select, .campo-grupo textarea {
+  width:100%; padding:11px 14px; border:2px solid var(--borda); border-radius:8px;
+  font-family:'Inter',sans-serif; font-size:14px; color:var(--texto);
+  background:white; transition:border 0.2s; outline:none;
+}
+.campo-grupo input:focus, .campo-grupo select:focus, .campo-grupo textarea:focus { border-color:var(--azul-med); }
+.campo-grupo textarea { resize:vertical; min-height:70px; }
+.campo-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.campo-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+
+/* EQUIPOS */
+.equip-item { background:var(--gris); border-radius:10px; padding:14px; margin-bottom:10px; }
+.equip-nome { font-size:13px; font-weight:700; color:var(--azul); margin-bottom:10px; }
+
+/* RESULTADOS CALCULADOS */
+.resultado-card { background:var(--azul); color:white; border-radius:14px; padding:20px; margin-bottom:14px; }
+.resultado-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.res-item strong { display:block; font-family:'Poppins',sans-serif; font-size:22px; font-weight:800; color:var(--sol); }
+.res-item span { font-size:12px; color:rgba(255,255,255,0.6); }
+.res-total { border-top:1px solid rgba(255,255,255,0.15); padding-top:14px; margin-top:14px; display:flex; justify-content:space-between; align-items:center; }
+.res-total-label { font-size:14px; color:rgba(255,255,255,0.7); }
+.res-total-valor { font-family:'Poppins',sans-serif; font-size:28px; font-weight:900; color:var(--sol); }
+
+/* MARGEM */
+.margem-box { border-radius:10px; padding:14px 16px; margin-bottom:10px; text-align:center; }
+.margem-box.bom { background:#DCFCE7; }
+.margem-box.ok { background:#FFFBEB; }
+.margem-box.ruim { background:#FEE2E2; }
+.margem-pct { font-family:'Poppins',sans-serif; font-size:32px; font-weight:900; }
+.margem-box.bom .margem-pct { color:var(--verde); }
+.margem-box.ok .margem-pct { color:#D97706; }
+.margem-box.ruim .margem-pct { color:#DC2626; }
+.margem-label { font-size:13px; font-weight:600; color:var(--suave); margin-top:2px; }
+
+/* PROPOSTA */
+.proposta-wrap { background:white; border-radius:14px; overflow:hidden; margin-bottom:14px; box-shadow:0 4px 20px rgba(0,0,0,0.1); }
+.prop-header { background:var(--azul); padding:28px 24px; color:white; }
+.prop-empresa { font-family:'Poppins',sans-serif; font-size:20px; font-weight:800; color:var(--sol); margin-bottom:4px; }
+.prop-contato { font-size:13px; color:rgba(255,255,255,0.6); }
+.prop-badge { display:inline-block; background:rgba(245,166,35,0.2); border:1px solid rgba(245,166,35,0.4); color:var(--sol); font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; margin-top:12px; }
+.prop-cliente { background:rgba(255,255,255,0.06); border-radius:10px; padding:14px; margin-top:16px; }
+.prop-cliente .pc-label { font-size:11px; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+.prop-cliente .pc-nome { font-family:'Poppins',sans-serif; font-size:17px; font-weight:700; }
+.prop-cliente .pc-info { font-size:12px; color:rgba(255,255,255,0.6); margin-top:3px; }
+.prop-body { padding:20px; }
+.prop-secao { margin-bottom:20px; }
+.prop-secao-titulo { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--sol); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid var(--borda); }
+.prop-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:14px; }
+.prop-stat { background:var(--gris); border-radius:10px; padding:12px; text-align:center; }
+.prop-stat strong { display:block; font-family:'Poppins',sans-serif; font-size:18px; font-weight:800; color:var(--azul); }
+.prop-stat span { font-size:11px; color:var(--suave); }
+.prop-table { width:100%; border-collapse:collapse; font-size:13px; }
+.prop-table th { background:var(--azul); color:white; padding:10px 12px; text-align:left; font-size:12px; }
+.prop-table td { padding:10px 12px; border-bottom:1px solid var(--borda); color:var(--texto); }
+.prop-table tr:nth-child(even) td { background:var(--gris); }
+.prop-table tr:last-child td { border-bottom:none; font-weight:700; background:#FFFBEB; }
+.prop-financ { background:var(--azul); border-radius:12px; padding:18px; color:white; }
+.prop-financ-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+.pf-item strong { display:block; font-family:'Poppins',sans-serif; font-size:20px; font-weight:800; color:var(--sol); }
+.pf-item span { font-size:12px; color:rgba(255,255,255,0.6); }
+.pf-total { border-top:1px solid rgba(255,255,255,0.15); padding-top:14px; display:flex; justify-content:space-between; align-items:center; }
+.pf-total-label { font-size:13px; color:rgba(255,255,255,0.7); }
+.pf-total-valor { font-family:'Poppins',sans-serif; font-size:26px; font-weight:900; color:var(--sol); }
+.prop-garantias { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:14px; }
+.prop-garantia { background:var(--gris); border-radius:10px; padding:12px; text-align:center; }
+.pg-icon { font-size:22px; margin-bottom:6px; }
+.pg-titulo { font-size:11px; font-weight:600; color:var(--suave); }
+.pg-valor { font-family:'Poppins',sans-serif; font-size:16px; font-weight:800; color:var(--azul); margin-top:2px; }
+.prop-footer { background:var(--gris); padding:14px 20px; text-align:center; font-size:12px; color:var(--suave); }
+
+/* BOTÕES */
+.btn-primary { display:block; width:100%; background:var(--azul); color:white; font-family:'Poppins',sans-serif; font-size:15px; font-weight:800; padding:15px; border-radius:10px; border:none; cursor:pointer; margin-bottom:10px; }
+.btn-primary:hover { background:var(--azul-med); }
+.btn-secondary { display:block; width:100%; background:white; color:var(--azul); font-family:'Poppins',sans-serif; font-size:14px; font-weight:700; padding:13px; border-radius:10px; border:2px solid var(--borda); cursor:pointer; margin-bottom:10px; }
+.btn-verde { display:block; width:100%; background:var(--verde); color:white; font-family:'Poppins',sans-serif; font-size:15px; font-weight:800; padding:15px; border-radius:10px; border:none; cursor:pointer; margin-bottom:10px; }
+
+/* FOOTER */
+.footer { text-align:center; padding:20px; font-size:12px; color:var(--suave); }
+.footer strong { color:var(--sol); }
+
+@media print {
+  .header, .tabs, #painel-dados, #painel-calculo, .acoes-proposta { display:none !important; }
+  #painel-proposta { display:block !important; }
+  .proposta-wrap { box-shadow:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">📊 Template Profesional</div>
+  <h1>Presupuesto <span>Solar</span></h1>
+  <p>Completa los datos — la propuesta se genera automáticamente</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab ativo" onclick="mudarTab('dados')">1. Datos</div>
+  <div class="tab" onclick="mudarTab('calculo')">2. Cálculo</div>
+  <div class="tab" onclick="mudarTab('proposta')">3. Propuesta</div>
+</div>
+
+<!-- ═══ PAINEL 1 — DADOS ═══ -->
+<div class="painel ativo" id="painel-dados">
+
+  <div class="card">
+    <div class="card-titulo"><span>🏢</span> Tu Empresa</div>
+    <div class="campo-grupo">
+      <label>Nombre de la empresa</label>
+      <input type="text" id="emp-nome" placeholder="Ej: Energía Solar Pro" oninput="salvar()">
+    </div>
+    <div class="campo-row">
+      <div class="campo-grupo">
+        <label>Email</label>
+        <input type="text" id="emp-email" placeholder="contacto@tuempresa.com" oninput="salvar()">
+      </div>
+      <div class="campo-grupo">
+        <label>Teléfono / WhatsApp</label>
+        <input type="text" id="emp-tel" placeholder="+52 55 0000-0000" oninput="salvar()">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-titulo"><span>👤</span> Datos del Cliente</div>
+    <div class="campo-grupo">
+      <label>Nombre completo</label>
+      <input type="text" id="cli-nome" placeholder="Nombre del cliente" oninput="salvar()">
+    </div>
+    <div class="campo-row">
+      <div class="campo-grupo">
+        <label>Ciudad / País</label>
+        <input type="text" id="cli-ciudad" placeholder="Ciudad, País" oninput="salvar()">
+      </div>
+      <div class="campo-grupo">
+        <label>Fecha del presupuesto</label>
+        <input type="date" id="cli-fecha" oninput="salvar()">
+      </div>
+    </div>
+    <div class="campo-grupo">
+      <label>Consumo mensual promedio (kWh/mes)</label>
+      <input type="number" id="cli-consumo" placeholder="Ej: 450" oninput="salvar(); calcularAuto()">
+    </div>
+    <div class="campo-row">
+      <div class="campo-grupo">
+        <label>Tarifa eléctrica ($/kWh)</label>
+        <input type="number" id="cli-tarifa" placeholder="Ej: 0.15" step="0.01" oninput="salvar(); calcularAuto()">
+      </div>
+      <div class="campo-grupo">
+        <label>HSP de la localidad</label>
+        <input type="number" id="cli-hsp" placeholder="Ej: 5.5" step="0.1" oninput="salvar(); calcularAuto()">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-titulo"><span>⚡</span> Sistema Recomendado</div>
+    <div class="campo-row">
+      <div class="campo-grupo">
+        <label>Potencia del sistema (kWp)</label>
+        <input type="number" id="sys-kwp" placeholder="Ej: 4.4" step="0.1" oninput="salvar(); calcularAuto()">
+      </div>
+      <div class="campo-grupo">
+        <label>Número de paneles</label>
+        <input type="number" id="sys-paineis" placeholder="Ej: 11" oninput="salvar()">
+      </div>
+    </div>
+    <div class="campo-row">
+      <div class="campo-grupo">
+        <label>Potencia del panel (Wp)</label>
+        <input type="number" id="sys-wp" placeholder="Ej: 400" oninput="salvar()">
+      </div>
+      <div class="campo-grupo">
+        <label>Potencia del inversor (kW)</label>
+        <input type="number" id="sys-inv-kw" placeholder="Ej: 4" step="0.5" oninput="salvar()">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-titulo"><span>📦</span> Equipos Incluidos</div>
+
+    <div class="equip-item">
+      <div class="equip-nome">Módulos Fotovoltaicos</div>
+      <div class="campo-row">
+        <div class="campo-grupo">
+          <label>Marca / Modelo</label>
+          <input type="text" id="eq-panel-marca" placeholder="Ej: Jinko Solar 400Wp" oninput="salvar()">
+        </div>
+        <div class="campo-grupo">
+          <label>Garantía (años)</label>
+          <input type="number" id="eq-panel-gar" placeholder="25" oninput="salvar()">
+        </div>
+      </div>
+    </div>
+
+    <div class="equip-item">
+      <div class="equip-nome">Inversor Solar</div>
+      <div class="campo-row">
+        <div class="campo-grupo">
+          <label>Marca / Modelo</label>
+          <input type="text" id="eq-inv-marca" placeholder="Ej: Growatt 4kW" oninput="salvar()">
+        </div>
+        <div class="campo-grupo">
+          <label>Garantía (años)</label>
+          <input type="number" id="eq-inv-gar" placeholder="10" oninput="salvar()">
+        </div>
+      </div>
+    </div>
+
+    <div class="equip-item">
+      <div class="equip-nome">Estructura + Cableado + Protecciones</div>
+      <div class="campo-row">
+        <div class="campo-grupo">
+          <label>Tipo de estructura</label>
+          <input type="text" id="eq-struct" placeholder="Ej: Aluminio para teja" oninput="salvar()">
+        </div>
+        <div class="campo-grupo">
+          <label>Garantía mano de obra (años)</label>
+          <input type="number" id="eq-mo-gar" placeholder="2" oninput="salvar()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-titulo"><span>💰</span> Precios del Proyecto</div>
+    <div class="campo-row">
+      <div class="campo-grupo">
+        <label>Costo total de equipos ($)</label>
+        <input type="number" id="custo-equip" placeholder="Ej: 1960" oninput="salvar(); calcularAuto()">
+      </div>
+      <div class="campo-grupo">
+        <label>Costo mano de obra ($)</label>
+        <input type="number" id="custo-mo" placeholder="Ej: 400" oninput="salvar(); calcularAuto()">
+      </div>
+    </div>
+    <div class="campo-row">
+      <div class="campo-grupo">
+        <label>Otros costos ($)</label>
+        <input type="number" id="custo-outros" placeholder="Ej: 200" oninput="salvar(); calcularAuto()">
+      </div>
+      <div class="campo-grupo">
+        <label>Precio de venta al cliente ($)</label>
+        <input type="number" id="preco-venda" placeholder="Ej: 4500" oninput="salvar(); calcularAuto()">
+      </div>
+    </div>
+    <div class="campo-grupo">
+      <label>Moneda</label>
+      <select id="moeda" oninput="salvar()">
+        <option value="USD">USD — Dólar americano</option>
+        <option value="MXN">MXN — Peso mexicano</option>
+        <option value="COP">COP — Peso colombiano</option>
+        <option value="CLP">CLP — Peso chileno</option>
+        <option value="ARS">ARS — Peso argentino</option>
+        <option value="PEN">PEN — Sol peruano</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="btn-primary" onclick="mudarTab('calculo')">Ver Cálculo de Margen →</button>
+
+</div>
+
+<!-- ═══ PAINEL 2 — CÁLCULO ═══ -->
+<div class="painel" id="painel-calculo">
+
+  <div class="resultado-card">
+    <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,166,35,0.8);margin-bottom:14px;">Resumen del Sistema</div>
+    <div class="resultado-grid">
+      <div class="res-item">
+        <strong id="res-kwp">—</strong>
+        <span>kWp instalados</span>
+      </div>
+      <div class="res-item">
+        <strong id="res-geracao">—</strong>
+        <span>kWh/mes estimado</span>
+      </div>
+      <div class="res-item">
+        <strong id="res-ahorro-mes">—</strong>
+        <span>Ahorro mensual</span>
+      </div>
+      <div class="res-item">
+        <strong id="res-roi">—</strong>
+        <span>Retorno de inversión</span>
+      </div>
+    </div>
+    <div class="res-total">
+      <div class="res-total-label">Precio de venta</div>
+      <div class="res-total-valor" id="res-preco">—</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-titulo"><span>📊</span> Análisis de Margen</div>
+    <div class="margem-box" id="margem-box">
+      <div class="margem-pct" id="margem-pct">—</div>
+      <div class="margem-label" id="margem-label">Completa los datos para calcular</div>
+    </div>
+    <div class="campo-row3">
+      <div style="text-align:center;padding:10px;background:var(--gris);border-radius:8px;">
+        <div style="font-size:11px;color:var(--suave);margin-bottom:4px;">Costo total</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;color:var(--azul)" id="res-custo">—</div>
+      </div>
+      <div style="text-align:center;padding:10px;background:var(--gris);border-radius:8px;">
+        <div style="font-size:11px;color:var(--suave);margin-bottom:4px;">Ganancia bruta</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;color:var(--verde)" id="res-ganancia">—</div>
+      </div>
+      <div style="text-align:center;padding:10px;background:var(--gris);border-radius:8px;">
+        <div style="font-size:11px;color:var(--suave);margin-bottom:4px;">Margen</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:16px;font-weight:800;color:var(--sol)" id="res-margem2">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-titulo"><span>📈</span> Retorno para el Cliente</div>
+    <div class="campo-row">
+      <div style="text-align:center;padding:14px;background:var(--gris);border-radius:10px;">
+        <div style="font-size:11px;color:var(--suave);margin-bottom:6px;">Ahorro mensual</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;color:var(--verde)" id="res-ahorro2">—</div>
+      </div>
+      <div style="text-align:center;padding:14px;background:var(--gris);border-radius:10px;">
+        <div style="font-size:11px;color:var(--suave);margin-bottom:6px;">Ahorro anual</div>
+        <div style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;color:var(--verde)" id="res-ahorro-anual">—</div>
+      </div>
+    </div>
+    <div style="text-align:center;padding:14px;background:#FFFBEB;border-radius:10px;margin-top:10px;">
+      <div style="font-size:11px;color:var(--suave);margin-bottom:6px;">Retorno en 25 años</div>
+      <div style="font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:var(--azul)" id="res-ret25">—</div>
+    </div>
+  </div>
+
+  <button class="btn-verde" onclick="mudarTab('proposta')">Ver Propuesta Lista →</button>
+  <button class="btn-secondary" onclick="mudarTab('dados')">← Editar Datos</button>
+
+</div>
+
+<!-- ═══ PAINEL 3 — PROPOSTA ═══ -->
+<div class="painel" id="painel-proposta">
+
+  <div class="proposta-wrap" id="proposta-print">
+
+    <div class="prop-header">
+      <div class="prop-empresa" id="p-empresa">Tu Empresa Solar</div>
+      <div class="prop-contato">
+        <span id="p-email"></span> &nbsp;·&nbsp; <span id="p-tel"></span>
+      </div>
+      <div class="prop-badge">PROPUESTA COMERCIAL</div>
+      <div class="prop-cliente">
+        <div class="pc-label">Propuesta preparada para</div>
+        <div class="pc-nome" id="p-cliente">—</div>
+        <div class="pc-info">
+          📍 <span id="p-ciudad"></span> &nbsp;|&nbsp;
+          📅 <span id="p-fecha"></span> &nbsp;|&nbsp;
+          Validez: 15 días
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-body">
+
+      <div class="prop-secao">
+        <div class="prop-secao-titulo">Sistema Recomendado</div>
+        <div class="prop-grid">
+          <div class="prop-stat">
+            <strong id="p-kwp">—</strong>
+            <span>kWp instalados</span>
+          </div>
+          <div class="prop-stat">
+            <strong id="p-paineis">—</strong>
+            <span>paneles de <span id="p-wp">—</span>Wp</span>
+          </div>
+          <div class="prop-stat">
+            <strong id="p-geracao">—</strong>
+            <span>kWh/mes estimado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-secao">
+        <div class="prop-secao-titulo">Equipos Incluidos</div>
+        <div style="overflow-x:auto;">
+          <table class="prop-table">
+            <thead>
+              <tr>
+                <th>Equipo</th>
+                <th>Marca / Modelo</th>
+                <th>Cantidad</th>
+                <th>Garantía</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Módulos Fotovoltaicos</td>
+                <td id="p-panel-marca">—</td>
+                <td id="p-panel-qtd">—</td>
+                <td id="p-panel-gar">—</td>
+              </tr>
+              <tr>
+                <td>Inversor Solar</td>
+                <td id="p-inv-marca">—</td>
+                <td>1 unidad</td>
+                <td id="p-inv-gar">—</td>
+              </tr>
+              <tr>
+                <td>Estructura de Fijación</td>
+                <td id="p-struct">—</td>
+                <td>1 kit</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Cableado + Protecciones CC/CA</td>
+                <td>Cable solar UV + DPS + Breaker</td>
+                <td>1 kit</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Mano de Obra de Instalación</strong></td>
+                <td>Equipo técnico certificado</td>
+                <td>—</td>
+                <td id="p-mo-gar">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prop-secao">
+        <div class="prop-secao-titulo">Análisis Financiero</div>
+        <div class="prop-financ">
+          <div class="prop-financ-grid">
+            <div class="pf-item">
+              <strong id="p-ahorro-mes">—</strong>
+              <span>Ahorro mensual estimado</span>
+            </div>
+            <div class="pf-item">
+              <strong id="p-ahorro-anual">—</strong>
+              <span>Ahorro anual estimado</span>
+            </div>
+            <div class="pf-item">
+              <strong id="p-roi">—</strong>
+              <span>Retorno de inversión</span>
+            </div>
+            <div class="pf-item">
+              <strong id="p-ret25">—</strong>
+              <span>Retorno en 25 años</span>
+            </div>
+          </div>
+          <div class="pf-total">
+            <div class="pf-total-label">INVERSIÓN TOTAL</div>
+            <div class="pf-total-valor" id="p-preco">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-secao">
+        <div class="prop-secao-titulo">Garantías Incluidas</div>
+        <div class="prop-garantias">
+          <div class="prop-garantia">
+            <div class="pg-icon">☀️</div>
+            <div class="pg-titulo">Paneles Solares</div>
+            <div class="pg-valor" id="p-g-panel">— años</div>
+          </div>
+          <div class="prop-garantia">
+            <div class="pg-icon">⚡</div>
+            <div class="pg-titulo">Inversor</div>
+            <div class="pg-valor" id="p-g-inv">— años</div>
+          </div>
+          <div class="prop-garantia">
+            <div class="pg-icon">🔧</div>
+            <div class="pg-titulo">Mano de Obra</div>
+            <div class="pg-valor" id="p-g-mo">— años</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="prop-footer">
+      Propuesta válida por 15 días · <span id="p-empresa-foot">Tu empresa</span> · <span id="p-email-foot"></span>
+    </div>
+  </div>
+
+  <div class="acoes-proposta">
+    <button class="btn-primary" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+    <button class="btn-secondary" onclick="compartilhar()">📤 Compartir como texto</button>
+    <button class="btn-secondary" onclick="mudarTab('dados')">← Editar Datos</button>
+  </div>
+
+</div>
+
+<div class="footer">☀️ <strong>Guía Solar</strong> — Template de Presupuesto Solar</div>
+
+<script>
+function mudarTab(tab) {
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('ativo', ['dados','calculo','proposta'][i] === tab);
+  });
+  document.querySelectorAll('.painel').forEach(p => p.classList.remove('ativo'));
+  document.getElementById('painel-' + tab).classList.add('ativo');
+  if (tab === 'calculo' || tab === 'proposta') calcularAuto();
+  if (tab === 'proposta') atualizarProposta();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function g(id) {
+  const el = document.getElementById(id);
+  return el ? el.value : '';
+}
+
+function fmt(val, moeda) {
+  const m = moeda || g('moeda') || 'USD';
+  if (!val || isNaN(val)) return '—';
+  return m + ' ' + parseFloat(val).toLocaleString('es-MX', {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
+function calcularAuto() {
+  const consumo  = parseFloat(g('cli-consumo')) || 0;
+  const hsp      = parseFloat(g('cli-hsp')) || 0;
+  const tarifa   = parseFloat(g('cli-tarifa')) || 0;
+  const kwp      = parseFloat(g('sys-kwp')) || 0;
+  const custEq   = parseFloat(g('custo-equip')) || 0;
+  const custMO   = parseFloat(g('custo-mo')) || 0;
+  const custOut  = parseFloat(g('custo-outros')) || 0;
+  const preco    = parseFloat(g('preco-venda')) || 0;
+  const moeda    = g('moeda') || 'USD';
+
+  // Geração estimada
+  const geracao = kwp > 0 && hsp > 0 ? (kwp * hsp * 0.80 * 30).toFixed(0) : 0;
+
+  // Ahorro
+  const ahorroMes   = tarifa > 0 && geracao > 0 ? (geracao * tarifa).toFixed(2) : 0;
+  const ahorroAnual = ahorroMes > 0 ? (ahorroMes * 12).toFixed(2) : 0;
+
+  // ROI
+  const roi = ahorroMes > 0 && preco > 0
+    ? (preco / ahorroMes / 12).toFixed(1) + ' años'
+    : '—';
+
+  // Retorno 25 anos
+  const ret25 = ahorroAnual > 0 ? (ahorroAnual * 25).toFixed(0) : 0;
+
+  // Margem
+  const custoTotal = custEq + custMO + custOut;
+  const ganancia   = preco - custoTotal;
+  const margem     = preco > 0 ? ((ganancia / preco) * 100).toFixed(1) : 0;
+
+  // Atualizar painel cálculo
+  set('res-kwp', kwp > 0 ? kwp + ' kWp' : '—');
+  set('res-geracao', geracao > 0 ? geracao + ' kWh' : '—');
+  set('res-ahorro-mes', ahorroMes > 0 ? fmt(ahorroMes) : '—');
+  set('res-roi', roi);
+  set('res-preco', preco > 0 ? fmt(preco) : '—');
+  set('res-custo', custoTotal > 0 ? fmt(custoTotal) : '—');
+  set('res-ganancia', ganancia > 0 ? fmt(ganancia) : '—');
+  set('res-margem2', margem > 0 ? margem + '%' : '—');
+  set('res-ahorro2', ahorroMes > 0 ? fmt(ahorroMes) + '/mes' : '—');
+  set('res-ahorro-anual', ahorroAnual > 0 ? fmt(ahorroAnual) + '/año' : '—');
+  set('res-ret25', ret25 > 0 ? fmt(ret25) : '—');
+
+  // Caixa de margem
+  const mb = document.getElementById('margem-box');
+  const mp = document.getElementById('margem-pct');
+  const ml = document.getElementById('margem-label');
+  if (margem > 0) {
+    mp.textContent = margem + '%';
+    if (margem >= 35) {
+      mb.className = 'margem-box bom';
+      ml.textContent = '✅ Excelente — negocio rentable';
+    } else if (margem >= 25) {
+      mb.className = 'margem-box ok';
+      ml.textContent = '⚠️ Aceptable — pero optimiza los costos';
+    } else {
+      mb.className = 'margem-box ruim';
+      ml.textContent = '❌ Bajo — revisa el precio o los costos';
+    }
+  }
+
+  // Salvar para proposta
+  window._calc = { geracao, ahorroMes, ahorroAnual, roi, ret25, custoTotal, ganancia, margem };
+}
+
+function atualizarProposta() {
+  const c = window._calc || {};
+  const moeda = g('moeda') || 'USD';
+  const kwp = g('sys-kwp');
+  const preco = parseFloat(g('preco-venda')) || 0;
+
+  // Header
+  set('p-empresa', g('emp-nome') || 'Tu Empresa Solar');
+  set('p-email', g('emp-email'));
+  set('p-tel', g('emp-tel'));
+  set('p-cliente', g('cli-nome') || '—');
+  set('p-ciudad', g('cli-ciudad'));
+
+  // Data formatada
+  const fd = g('cli-fecha');
+  if (fd) {
+    const d = new Date(fd + 'T00:00:00');
+    set('p-fecha', d.toLocaleDateString('es-MX', {day:'2-digit',month:'long',year:'numeric'}));
+  }
+
+  // Sistema
+  set('p-kwp', kwp ? kwp + ' kWp' : '—');
+  set('p-paineis', g('sys-paineis') || '—');
+  set('p-wp', g('sys-wp') || '—');
+  set('p-geracao', c.geracao ? c.geracao + ' kWh/mes' : '—');
+
+  // Equipos
+  set('p-panel-marca', g('eq-panel-marca') || '—');
+  set('p-panel-qtd', g('sys-paineis') ? g('sys-paineis') + ' unidades' : '—');
+  set('p-panel-gar', g('eq-panel-gar') ? g('eq-panel-gar') + ' años' : '—');
+  set('p-inv-marca', g('eq-inv-marca') ? g('eq-inv-marca') + ' ' + (g('sys-inv-kw') || '') + ' kW' : '—');
+  set('p-inv-gar', g('eq-inv-gar') ? g('eq-inv-gar') + ' años' : '—');
+  set('p-struct', g('eq-struct') || '—');
+  set('p-mo-gar', g('eq-mo-gar') ? g('eq-mo-gar') + ' años' : '—');
+
+  // Financeiro
+  set('p-ahorro-mes', c.ahorroMes ? fmt(c.ahorroMes) + '/mes' : '—');
+  set('p-ahorro-anual', c.ahorroAnual ? fmt(c.ahorroAnual) + '/año' : '—');
+  set('p-roi', c.roi || '—');
+  set('p-ret25', c.ret25 ? fmt(c.ret25) : '—');
+  set('p-preco', preco > 0 ? fmt(preco) : '—');
+
+  // Garantias
+  set('p-g-panel', g('eq-panel-gar') ? g('eq-panel-gar') + ' años' : '—');
+  set('p-g-inv', g('eq-inv-gar') ? g('eq-inv-gar') + ' años' : '—');
+  set('p-g-mo', g('eq-mo-gar') ? g('eq-mo-gar') + ' años' : '—');
+
+  // Footer
+  set('p-empresa-foot', g('emp-nome') || 'Tu empresa');
+  set('p-email-foot', g('emp-email') || '');
+}
+
+function set(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val || '—';
+}
+
+function salvar() {
+  const campos = ['emp-nome','emp-email','emp-tel','cli-nome','cli-ciudad','cli-fecha',
+    'cli-consumo','cli-tarifa','cli-hsp','sys-kwp','sys-paineis','sys-wp','sys-inv-kw',
+    'eq-panel-marca','eq-panel-gar','eq-inv-marca','eq-inv-gar','eq-struct','eq-mo-gar',
+    'custo-equip','custo-mo','custo-outros','preco-venda','moeda'];
+  const data = {};
+  campos.forEach(id => { data[id] = g(id); });
+  localStorage.setItem('presupuesto_solar', JSON.stringify(data));
+}
+
+function carregar() {
+  const saved = localStorage.getItem('presupuesto_solar');
+  if (!saved) return;
+  try {
+    const data = JSON.parse(saved);
+    Object.entries(data).forEach(([id, val]) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val;
+    });
+  } catch {}
+}
+
+function compartilhar() {
+  const c = window._calc || {};
+  const texto = `*PRESUPUESTO SOLAR*\n\n` +
+    `Cliente: ${g('cli-nome')}\n` +
+    `Ciudad: ${g('cli-ciudad')}\n\n` +
+    `*Sistema:* ${g('sys-kwp')} kWp — ${g('sys-paineis')} paneles de ${g('sys-wp')}Wp\n` +
+    `*Generación estimada:* ${c.geracao || '—'} kWh/mes\n` +
+    `*Ahorro mensual:* ${c.ahorroMes ? fmt(c.ahorroMes) : '—'}\n` +
+    `*Retorno de inversión:* ${c.roi || '—'}\n\n` +
+    `*INVERSIÓN TOTAL: ${g('moeda')} ${g('preco-venda')}*\n\n` +
+    `Garantía paneles: ${g('eq-panel-gar')} años\n` +
+    `Garantía inversor: ${g('eq-inv-gar')} años\n` +
+    `Garantía mano de obra: ${g('eq-mo-gar')} años\n\n` +
+    `Válido por 15 días — ${g('emp-nome')}`;
+
+  if (navigator.share) {
+    navigator.share({ title: 'Presupuesto Solar', text: texto });
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(texto);
+    alert('Texto copiado al portapapeles');
+  }
+}
+
+// Init
+carregar();
+calcularAuto();
+
+// Data padrão
+if (!g('cli-fecha')) {
+  document.getElementById('cli-fecha').value = new Date().toISOString().split('T')[0];
+  salvar();
+}
+</script>
+</body>
+</html>
