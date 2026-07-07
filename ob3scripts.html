@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scripts de Ventas Solar — Guía Solar</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  :root { --sol: #F5A623; --sol-dark: #D4861A; --cielo: #0A1628; --gris-claro: #F0F4F8; --verde: #2ECC71; --rojo: #E74C3C; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #FAFBFC; color: #1A1A2E; line-height: 1.7; font-size: 15px; }
+
+  .capa { background: linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 60%, #0d200d 100%); color: white; padding: 80px 60px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; page-break-after: always; }
+  .capa::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%); }
+  .capa-badge { display: inline-block; background: rgba(245,166,35,0.2); border: 1px solid rgba(245,166,35,0.4); color: var(--sol); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 32px; width: fit-content; }
+  .capa h1 { font-family: 'Space Grotesk', sans-serif; font-size: 48px; font-weight: 700; line-height: 1.15; margin-bottom: 12px; z-index: 1; position: relative; }
+  .capa h1 span { color: var(--sol); }
+  .capa-subtitulo { font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 40px; font-weight: 300; z-index: 1; position: relative; }
+  .capa-divisor { width: 60px; height: 3px; background: var(--sol); margin-bottom: 32px; }
+  .capa-marca { position: absolute; bottom: 40px; right: 60px; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: rgba(255,255,255,0.3); z-index: 1; }
+  .capa-marca span { color: var(--sol); }
+  .capa-lista { list-style: none; z-index: 1; position: relative; }
+  .capa-lista li { padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 14px; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 10px; }
+  .capa-lista li span { color: var(--sol); }
+
+  .contenido { max-width: 820px; margin: 0 auto; padding: 60px 40px; }
+  .cap-header { background: linear-gradient(135deg, #0a1a0a 0%, #1a3a1a 100%); color: white; padding: 48px 60px; margin: 0 -40px 48px -40px; position: relative; overflow: hidden; }
+  .cap-header::after { content: ''; position: absolute; right: -40px; top: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(245,166,35,0.1); }
+  .cap-num { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--sol); margin-bottom: 12px; }
+  .cap-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; z-index: 1; position: relative; }
+  .cap-header p { color: rgba(255,255,255,0.65); margin-top: 10px; font-size: 14px; z-index: 1; position: relative; }
+  h3 { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; color: var(--cielo); margin: 36px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--gris-claro); }
+  h4 { font-size: 15px; font-weight: 600; color: #1A3A5C; margin: 24px 0 10px; }
+  p { margin-bottom: 14px; color: #2D3748; }
+  strong { color: var(--cielo); }
+
+  .box { border-radius: 12px; padding: 22px 26px; margin: 24px 0; }
+  .box-info { background: #EBF8FF; border-left: 4px solid #3182CE; }
+  .box-info .box-titulo { color: #2B6CB0; font-weight: 600; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .box-exito { background: #F0FFF4; border-left: 4px solid var(--verde); }
+  .box-exito .box-titulo { color: #276749; font-weight: 600; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+
+  .script-card { background: #1A1A2E; border-radius: 14px; overflow: hidden; margin: 24px 0; }
+  .script-card-header { background: #0A1628; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  .script-card-header .sch-icon { font-size: 20px; }
+  .script-card-header h4 { margin: 0; color: var(--sol); font-size: 14px; font-weight: 600; }
+  .script-card-header span { font-size: 12px; color: rgba(255,255,255,0.5); display: block; }
+  .script-card-body { padding: 20px 24px; }
+  .msg { background: rgba(255,255,255,0.06); border-left: 3px solid var(--sol); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 10px 0; font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+  .msg em { color: var(--sol); font-style: normal; font-weight: 600; }
+  .msg-label { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; margin: 16px 0 6px; }
+  .msg-nota { font-size: 12px; color: rgba(255,255,255,0.4); padding: 8px 0; font-style: italic; }
+
+  .divisor { height: 1px; background: linear-gradient(to right, transparent, #CBD5E0, transparent); margin: 36px 0; }
+  .rodape { background: #0a1a0a; color: rgba(255,255,255,0.4); text-align: center; padding: 22px; font-size: 12px; margin-top: 60px; }
+  .rodape span { color: var(--sol); }
+</style>
+</head>
+<body>
+
+<div class="capa">
+  <div class="capa-badge">💬 Scripts de Ventas</div>
+  <h1>Cierra Más<br><span>Contratos</span><br>Solares</h1>
+  <p class="capa-subtitulo">Mensajes listos para cada etapa del proceso de venta</p>
+  <div class="capa-divisor"></div>
+  <ul class="capa-lista">
+    <li><span>📱</span> Scripts completos de WhatsApp (primer contacto al cierre)</li>
+    <li><span>📞</span> Guión para visita técnica y presentación de propuesta</li>
+    <li><span>🛡️</span> Respuestas a las 8 objeciones más comunes</li>
+    <li><span>🔁</span> Secuencia de follow-up para leads que no respondieron</li>
+    <li><span>⭐</span> Script de pedido de indicación y testimonial</li>
+  </ul>
+  <div class="capa-marca">Guía <span>Solar</span></div>
+</div>
+
+<div class="contenido">
+
+<div class="cap-header">
+  <div class="cap-num">Introducción</div>
+  <h2>Cómo Usar Estos Scripts</h2>
+  <p>No son para copiar palabra por palabra — son para entender la estructura y adaptar a tu voz.</p>
+</div>
+
+<p>Los mejores scripts de ventas no suenan a script. Suenan a una conversación natural con alguien que sabe de lo que habla. Úsalos como guía, no como texto para leer. Practica hasta que las respuestas salgan naturales.</p>
+
+<div class="box box-info">
+  <div class="box-titulo">💡 Principios de la Venta Solar</div>
+  <p><strong>1. Velocidad:</strong> El primero en responder tiene ventaja. Responde en menos de 15 minutos.</p>
+  <p><strong>2. Confianza antes que producto:</strong> El cliente compra al instalador antes de comprar el sistema.</p>
+  <p><strong>3. Escucha más de lo que hablas:</strong> Haz preguntas. Quien hace preguntas, controla la conversación.</p>
+  <p style="margin:0"><strong>4. Nunca presiones:</strong> La presión genera resistencia. La educación genera decisión.</p>
+</div>
+
+<div class="divisor"></div>
+
+<!-- PRIMER CONTACTO -->
+<div class="cap-header">
+  <div class="cap-num">Etapa 01</div>
+  <h2>Primer Contacto por WhatsApp</h2>
+  <p>La primera respuesta define si el lead se queda contigo o se va con la competencia.</p>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">📱</div>
+    <div><h4>Script 1A — Respuesta a Lead Entrante</h4><span>Para usar cuando el cliente te escribe por primera vez</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg">¡Hola <em>[Nombre]</em>! 👋 Soy <em>[Tu nombre]</em> de <em>[Empresa]</em>. Vi tu mensaje sobre energía solar — estás en el lugar correcto ☀️<br><br>Para prepararte el análisis más preciso posible, necesito hacerte 2 preguntas rápidas:<br><br>1️⃣ ¿Cuánto pagas aproximadamente de electricidad al mes?<br>2️⃣ ¿La propiedad donde instalaría el sistema es tuya o arrendada?</div>
+    <div class="msg-nota">⏱️ Enviar en menos de 15 minutos. Si llegó fuera de horario, enviar a primera hora del día siguiente con: "Buenos días [Nombre], vi tu mensaje de ayer..."</div>
+  </div>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">📱</div>
+    <div><h4>Script 1B — Calificación del Lead</h4><span>Después de recibir las respuestas iniciales</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg-label">Si la factura es mayor a $60 USD/mes:</div>
+    <div class="msg">¡Perfecto <em>[Nombre]</em>! Con ese consumo, un sistema solar tiene excelente retorno de inversión en tu caso.<br><br>Tengo disponibilidad para hacer una visita técnica gratuita esta semana para analizar tu propiedad y prepararte una propuesta personalizada. ¿Qué día te queda mejor, <em>[opción 1]</em> o <em>[opción 2]</em>? 📅</div>
+    <div class="msg-label">Si la factura es menor a $40 USD/mes:</div>
+    <div class="msg">Hola <em>[Nombre]</em>, gracias por la información. Con ese nivel de consumo, el retorno de inversión sería un poco más largo de lo habitual.<br><br>Hay dos opciones que podrían interesarte: un sistema Off-Grid si tienes problemas de cortes de luz, o esperar a que tu consumo aumente. ¿Tienes frecuentes cortes de electricidad en tu zona?</div>
+  </div>
+</div>
+
+<div class="divisor"></div>
+
+<!-- VISITA TÉCNICA -->
+<div class="cap-header">
+  <div class="cap-num">Etapa 02</div>
+  <h2>Guión para la Visita Técnica</h2>
+  <p>La visita es una venta disfrazada de inspección. Usa este guión para cerrar antes del presupuesto.</p>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">🏠</div>
+    <div><h4>Script 2A — Apertura de la Visita</h4><span>Los primeros 3 minutos al llegar</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg">Buenos días <em>[Nombre]</em>, soy <em>[Tu nombre]</em> de <em>[Empresa]</em>. Muchas gracias por recibirme.<br><br>Hoy vengo para hacer el análisis técnico completo de su propiedad — voy a revisar el tejado, la orientación, el cuadro eléctrico y el consumo detallado. Al final de la visita ya podré darle una idea bastante precisa del sistema ideal para su caso.<br><br>¿Podría ver primero las últimas 3 facturas de electricidad y luego subimos al tejado?</div>
+    <div class="msg-nota">🎯 Pedir las 3 facturas desde el inicio posiciona la visita como técnica seria, no como un vendedor que solo quiere cerrar.</div>
+  </div>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">🏠</div>
+    <div><h4>Script 2B — Cierre de la Visita</h4><span>Antes de irse — crear expectativa y compromiso</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg">Muy bien <em>[Nombre]</em>, tengo toda la información que necesito. Voy a preparar la propuesta personalizada para su caso con todos los detalles técnicos y financieros.<br><br>Basándome en lo que vi hoy, su sistema ideal sería de aproximadamente <em>[X kWp]</em>, que generaría unos <em>[X kWh]</em> al mes — suficiente para reducir su factura en más del <em>[X]</em>%.<br><br>Le envío la propuesta en menos de <em>[24 horas]</em>. ¿A qué email o WhatsApp prefiere recibirla? Y ¿tiene disponibilidad el <em>[día]</em> para que la revisemos juntos?</div>
+    <div class="msg-nota">🎯 Agendar una reunión de presentación antes de enviar la propuesta aumenta la tasa de cierre porque garantiza que el cliente la lee contigo.</div>
+  </div>
+</div>
+
+<div class="divisor"></div>
+
+<!-- PRESENTACIÓN DE PROPUESTA -->
+<div class="cap-header">
+  <div class="cap-num">Etapa 03</div>
+  <h2>Presentación de la Propuesta</h2>
+  <p>Cómo presentar el presupuesto para que venda por sí solo.</p>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">📊</div>
+    <div><h4>Script 3A — Estructura de Presentación</h4><span>Guión para la reunión de presentación (presencial o videollamada)</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg-label">Paso 1 — Recapitular el problema</div>
+    <div class="msg">"<em>[Nombre]</em>, recordando lo que conversamos: hoy paga <em>[$X]</em> al mes de electricidad, que en el año son <em>[$X × 12]</em>. En 10 años, si la tarifa no sube — y sabemos que siempre sube — habrá pagado más de <em>[$X × 120]</em>. ¿Es correcto?"</div>
+    <div class="msg-label">Paso 2 — Presentar la solución</div>
+    <div class="msg">"El sistema que diseñé para usted es de <em>[X kWp]</em>. Genera aproximadamente <em>[X kWh]</em> al mes, que cubre <em>[X]</em>% de su consumo actual. La factura que paga hoy de <em>[$X]</em> pasaría a ser de aproximadamente <em>[$X reducido]</em>."</div>
+    <div class="msg-label">Paso 3 — Presentar el ROI</div>
+    <div class="msg">"La inversión total es de <em>[$X]</em>. Ahorrando <em>[$X al mes]</em>, el sistema se paga en <em>[X años]</em>. Después de eso, son 15+ años de ahorro puro — un retorno de más de <em>[$X total]</em>. Ninguna inversión en banco da ese retorno garantizado."</div>
+    <div class="msg-label">Paso 4 — Anclar con garantías</div>
+    <div class="msg">"Los paneles tienen 25 años de garantía de rendimiento. El inversor tiene <em>[X]</em> años de garantía de fábrica. Y nosotros garantizamos la instalación por <em>[X]</em> años. Es una inversión segura."</div>
+    <div class="msg-label">Paso 5 — Llamada a la acción</div>
+    <div class="msg">"¿Tiene alguna pregunta sobre la propuesta? ¿Qué le parece si procedemos con la firma del contrato hoy y agendamos la instalación para <em>[fecha]</em>?"</div>
+  </div>
+</div>
+
+<div class="divisor"></div>
+
+<!-- OBJECIONES -->
+<div class="cap-header">
+  <div class="cap-num">Etapa 04</div>
+  <h2>Las 8 Objeciones Más Comunes</h2>
+  <p>Respuestas preparadas para no perder ventas por falta de argumento.</p>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">🛡️</div>
+    <div><h4>Objeciones y Respuestas</h4><span>Las 8 situaciones que más te harán perder si no tienes respuesta lista</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg-label">Objeción 1: "Es muy caro"</div>
+    <div class="msg">"Entiendo. ¿Caro comparado con qué? Comparado con seguir pagando <em>[$X]</em> al mes para siempre, el sistema se paga en <em>[X años]</em> y después genera retorno. ¿Qué otra decisión financiera te da ese resultado?"</div>
+
+    <div class="msg-label">Objeción 2: "Vi más barato en otro lugar"</div>
+    <div class="msg">"¿Qué equipos incluye esa propuesta? La diferencia de precio casi siempre está en la marca de los paneles o del inversor. Un panel de segunda línea puede durar 8 años en vez de 25. ¿Puedo ver la propuesta para comparar?"</div>
+
+    <div class="msg-label">Objeción 3: "Voy a pensarlo"</div>
+    <div class="msg">"Claro, es una decisión importante. ¿Hay algo específico en la propuesta que te genera duda? A veces cuando el cliente dice 'voy a pensarlo' hay algo que no quedó claro y puedo aclarar ahora."</div>
+
+    <div class="msg-label">Objeción 4: "No tengo el dinero ahora"</div>
+    <div class="msg">"Entiendo. ¿Hablaste con tu banco sobre financiamiento? Muchos bancos financian sistemas solares con la misma cuota mensual que el cliente ahorra en electricidad — literalmente el sistema se paga con el propio ahorro."</div>
+
+    <div class="msg-label">Objeción 5: "¿Y si cambia la ley de net metering?"</div>
+    <div class="msg">"Es una preocupación válida. Incluso si el net metering cambiara, el sistema seguiría generando energía que consumes en el momento — la factura se reduce igual. El net metering es un beneficio adicional, no el único."</div>
+
+    <div class="msg-label">Objeción 6: "¿Y si la empresa desaparece?"</div>
+    <div class="msg">"La garantía del fabricante de los equipos es independiente de nuestra empresa. Jinko, Growatt y los otros fabricantes tienen soporte en toda América Latina. Pero para darte más seguridad, podemos poner en el contrato que la garantía de instalación es transferible."</div>
+
+    <div class="msg-label">Objeción 7: "El techo es arrendado / no es mío"</div>
+    <div class="msg">"¿Tienes contrato de arrendamiento largo? Si el contrato es de 5+ años, muchos propietarios autorizan la instalación porque agrega valor a la propiedad. ¿Quieres que te ayude con un modelo de carta para presentar al propietario?"</div>
+
+    <div class="msg-label">Objeción 8: "Quiero esperar a que los precios bajen más"</div>
+    <div class="msg">"Entiendo la lógica. Pero los precios de paneles llevan bajando 10 años y todavía bajando. El problema es que cada mes que esperas, sigues pagando la factura llena. El sistema que no instalas hoy te cuesta <em>[$X]</em> al mes de ahorro perdido."</div>
+  </div>
+</div>
+
+<div class="divisor"></div>
+
+<!-- FOLLOW-UP -->
+<div class="cap-header">
+  <div class="cap-num">Etapa 05</div>
+  <h2>Secuencia de Follow-Up</h2>
+  <p>Para leads que recibieron la propuesta y no respondieron.</p>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">🔁</div>
+    <div><h4>Secuencia de 5 Mensajes — 14 días</h4><span>Nunca abandones un lead después del primer silencio</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg-label">Día 1 — Después de enviar la propuesta (mismo día, tarde)</div>
+    <div class="msg">Hola <em>[Nombre]</em>, te envié la propuesta hace unas horas. ¿Pudiste verla? Si tienes alguna pregunta, estoy a disposición 😊</div>
+
+    <div class="msg-label">Día 3 — Primer follow-up</div>
+    <div class="msg">Hola <em>[Nombre]</em>, ¿pudiste revisar la propuesta solar? Quería saber si quedó alguna duda sobre el sistema o el retorno de inversión. Estoy disponible para una llamada rápida si prefieres. ☀️</div>
+
+    <div class="msg-label">Día 7 — Segundo follow-up con valor</div>
+    <div class="msg">Hola <em>[Nombre]</em>! Esta semana instalamos un sistema similar al tuyo en <em>[ciudad/barrio]</em>. El cliente redujo la factura de <em>[$X]</em> a prácticamente cero. ¿Te gustaría ver las fotos de la instalación?</div>
+
+    <div class="msg-label">Día 10 — Follow-up con urgencia</div>
+    <div class="msg">Hola <em>[Nombre]</em>, te contacto porque nuestra agenda de instalaciones para este mes ya está casi llena. Si quieres garantizar la fecha que conversamos, necesito confirmación esta semana. ¿Sigues evaluando la propuesta?</div>
+
+    <div class="msg-label">Día 14 — Último mensaje</div>
+    <div class="msg">Hola <em>[Nombre]</em>, como no recibí respuesta, imagino que tomaste otra decisión o el momento no era el indicado — y está bien. Si en el futuro quieres retomar la conversación, estaré aquí. Te deseo lo mejor. 👋</div>
+    <div class="msg-nota">🎯 El último mensaje de "cierre" frecuentemente genera respuesta porque elimina la presión. Muchos clientes vuelven después de recibirlo.</div>
+  </div>
+</div>
+
+<div class="divisor"></div>
+
+<!-- POSVENTA -->
+<div class="cap-header">
+  <div class="cap-num">Etapa 06</div>
+  <h2>Scripts Posventa — Testimoniales e Indicaciones</h2>
+  <p>Convierte clientes satisfechos en tu mejor equipo de ventas.</p>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">⭐</div>
+    <div><h4>Script de Pedido de Testimonial</h4><span>30 días después de la instalación</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg">¡Hola <em>[Nombre]</em>! Han pasado 30 días desde tu instalación solar. ¿Cómo está funcionando el sistema? ¿Ya pudiste ver el impacto en la factura?<br><br>Si estás satisfecho con el resultado, ¿te importaría grabar un video corto de 30-60 segundos contando tu experiencia? Solo tienes que responder: ¿quién eres, cuánto pagabas antes y qué cambió con el solar.<br><br>A cambio, te ofrezco una revisión gratuita del sistema el próximo mes. 🙏</div>
+  </div>
+</div>
+
+<div class="script-card">
+  <div class="script-card-header">
+    <div class="sch-icon">🤝</div>
+    <div><h4>Script de Pedido de Indicación</h4><span>Después de confirmar satisfacción del cliente</span></div>
+  </div>
+  <div class="script-card-body">
+    <div class="msg">Me alegra mucho que estés contento con el sistema, <em>[Nombre]</em>. 😊<br><br>Trabajo mucho con referidos — la mayoría de mis clientes llegan por indicación. ¿Conoces algún vecino, familiar o compañero de trabajo que también pague una factura alta de electricidad?<br><br>Si me presentas a alguien y cierra el proyecto, te regalo una limpieza profesional de paneles gratis el próximo año. 🌞</div>
+  </div>
+</div>
+
+<div class="box box-exito" style="margin-top: 40px;">
+  <div class="box-titulo">✅ La Mejor Venta es la que no Parece una Venta</div>
+  <p style="margin:0">Los scripts no son trucos para manipular — son herramientas para comunicar valor de forma clara y honesta. Un cliente que entiende perfectamente lo que está comprando, cuánto va a ahorrar y qué garantías tiene, cierra mucho más fácil que uno con dudas. <strong>Tu trabajo es eliminar dudas, no crear urgencia artificial.</strong></p>
+</div>
+
+</div>
+<div class="rodape">© 2024 <span>Guía Solar</span> — Todos los derechos reservados.</div>
+</body>
+</html>
