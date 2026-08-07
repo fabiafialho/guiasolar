@@ -89,8 +89,8 @@ nav { background:#1565C0; padding:12px 20px; display:flex; justify-content:space
 .bonus-sec { background:#0D47A1; padding:44px 20px; }
 .bonus-sec h2 { font-family:'Poppins',sans-serif; font-size:24px; font-weight:900; color:white; text-align:center; margin-bottom:6px; }
 .bonus-sub { font-size:14px; color:rgba(255,255,255,0.7); text-align:center; margin-bottom:28px; }
-.bonus-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:700px; margin:0 auto; }
-@media(min-width:500px){ .bonus-grid { gap:20px; } }
+.bonus-grid { display:grid; grid-template-columns:1fr; gap:14px; max-width:700px; margin:0 auto; }
+@media(min-width:500px){ .bonus-grid { grid-template-columns:1fr 1fr; gap:20px; } }
 .bonus-card { background:#1565C0; border-radius:12px; overflow:hidden; text-align:center; }
 .bonus-card img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
 .bonus-card-body { padding:14px 12px; }
@@ -114,8 +114,8 @@ nav { background:#1565C0; padding:12px 20px; display:flex; justify-content:space
 .garantia-sec p { font-size:15px; color:#555; max-width:420px; margin:0 auto; line-height:1.65; }
 
 /* CHECKOUT BANNER */
-.banner-wrap { background:white; padding:20px; text-align:center; border-top:1px solid #F3F4F6; }
-.banner-wrap img { max-width:100%; width:100%; margin:0 auto; display:block; border-radius:10px; }
+.banner-wrap { background:white; padding:0; text-align:center; }
+.banner-wrap img { max-width:100%; width:100%; margin:0 auto; display:block; }
 
 /* DEPOIMENTOS */
 .depoi-sec { background:#F5F7FA; padding:44px 20px; }
@@ -338,7 +338,13 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   <!-- banner 1 -->
   <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/banner%201.png" alt="Garantia 30 dias">
 </section>
-  
+
+<!-- BANNER CHECKOUT -->
+<div class="banner-wrap">
+  <!-- banner 2 -->
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/banner%202.png" alt="Checkout seguro">
+</div>
+
 <!-- DEPOIMENTOS -->
 <section class="depoi-sec" id="testimonios">
   <h2>Lo que dicen nuestros alumnos</h2>
@@ -387,9 +393,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   </div>
 </section>
 
-    <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/compra-segura-hotmart-w1000.png" alt="Compra segura" style="max-width:100%;width:100%;margin:16px auto 0;display:block;border-radius:10px;">
-</section>
-  
 <!-- OFERTA FINAL -->
 <section class="oferta-final">
   <div class="of-selos">
@@ -399,13 +402,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
     <div class="of-selo"><span>✉️</span><p>Soporte 24/7</p></div>
     <div class="of-selo"><span>🏆</span><p>⭐⭐⭐⭐⭐ 4.8/5</p></div>
   </div>
-
-  <!-- BANNER CHECKOUT -->
-<div class="banner-wrap">
-  <!-- banner 2 -->
-  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/banner%202.png" alt="Checkout seguro">
-</div>
-
   <h2 class="of-titulo">¿Listo para transformar tu futuro?</h2>
   <p class="of-sub">Únete a los más de 3,200 profesionales y comienza hoy mismo.</p>
   <p class="of-preco-de">Precio regular: US$ 67.00</p>
@@ -417,6 +413,8 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
     <li>Actualizaciones Gratis Incluidas</li>
     <li>Garantía Total de Satisfacción</li>
   </ul>
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/compra-segura-hotmart-w1000.png" alt="Compra segura" style="max-width:100%;width:100%;margin:16px auto 0;display:block;border-radius:10px;">
+</section>
 
 <!-- GRUPO -->
 <section class="grupo-sec">
