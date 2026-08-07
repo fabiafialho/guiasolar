@@ -15,11 +15,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '854994017459160');
+fbq('init', '1000404656216830');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=854994017459160&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1000404656216830&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
@@ -89,11 +89,8 @@ nav { background:#1565C0; padding:12px 20px; display:flex; justify-content:space
 .bonus-sec { background:#0D47A1; padding:44px 20px; }
 .bonus-sec h2 { font-family:'Poppins',sans-serif; font-size:24px; font-weight:900; color:white; text-align:center; margin-bottom:6px; }
 .bonus-sub { font-size:14px; color:rgba(255,255,255,0.7); text-align:center; margin-bottom:28px; }
-
-/* 1 por linha no mobile, 2 no desktop */
-.bonus-grid { display:grid; grid-template-columns:1fr; gap:14px; max-width:700px; margin:0 auto; }
-@media(min-width:600px){ .bonus-grid { grid-template-columns:1fr 1fr; gap:20px; } }
-
+.bonus-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:700px; margin:0 auto; }
+@media(min-width:500px){ .bonus-grid { gap:20px; } }
 .bonus-card { background:#1565C0; border-radius:12px; overflow:hidden; text-align:center; }
 .bonus-card img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
 .bonus-card-body { padding:14px 12px; }
@@ -113,10 +110,12 @@ nav { background:#1565C0; padding:12px 20px; display:flex; justify-content:space
 /* GARANTIA */
 .garantia-sec { background:white; padding:0; text-align:center; }
 .garantia-sec img { max-width:100%; width:100%; margin:0 auto; display:block; }
+.garantia-sec h2 { font-family:'Poppins',sans-serif; font-size:22px; font-weight:800; color:#111; margin-bottom:10px; }
+.garantia-sec p { font-size:15px; color:#555; max-width:420px; margin:0 auto; line-height:1.65; }
 
-/* BANNER WRAP — largura total sem padding */
-.banner-wrap { background:white; padding:0; text-align:center; }
-.banner-wrap img { width:100%; display:block; }
+/* CHECKOUT BANNER */
+.banner-wrap { background:white; padding:20px; text-align:center; border-top:1px solid #F3F4F6; }
+.banner-wrap img { max-width:100%; width:100%; margin:0 auto; display:block; border-radius:10px; }
 
 /* DEPOIMENTOS */
 .depoi-sec { background:#F5F7FA; padding:44px 20px; }
@@ -201,14 +200,14 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">☀️ Manual Solar</div>
+  <div class="nav-logo">☀️ Guía Solar</div>
   <div class="nav-links">
     <a href="#inicio">Inicio</a>
     <a href="#modulos">Módulos</a>
     <a href="#testimonios">Testimonios</a>
     <a href="#preguntas">Preguntas</a>
   </div>
-  <a href="https://pay.kiwify.com/LaSRoOT" class="nav-cta">Comprar Ahora</a>
+  <a href="https://pay.hotmart.com/P106540600T" class="nav-cta">Comprar Ahora</a>
 </nav>
 
 <!-- HERO -->
@@ -218,12 +217,13 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
       <h1>Guía Esencial para Instaladores y Emprendedores de Energía Solar</h1>
       <p class="hero-sub">De Principiante a Instalador Solar Profesional en 20 Días — Sin Necesidad de Experiencia Previa.</p>
       <p class="hero-preco-de">Precio regular: <span>US$ 67.00</span></p>
-      <div class="hero-preco">US$ 6,90</div>
-      <a href="https://pay.kiwify.com/LaSRoOT" class="btn-verde" id="hero-cta">¡SÍ, QUIERO LA GUÍA POR US$ 6,90!</a>
+      <div class="hero-preco">US$ 9.97</div>
+      <a href="https://pay.hotmart.com/P106540600T" class="btn-verde" id="hero-cta">¡SÍ, QUIERO LA GUÍA POR US$ 9.97!</a>
       <p class="hero-garantia">✔ Prueba sin riesgos: <strong>30 días</strong> de garantía total</p>
       <p class="hero-social">Más de 3,200 profesionales ya han transformado sus carreras con este método.</p>
       <div class="hero-stars">⭐⭐⭐⭐⭐ <span style="font-size:14px;color:rgba(255,255,255,0.8)">4.8/5 estrellas</span></div>
     </div>
+    <!-- img 1 -->
     <div class="hero-img-wrap">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/img%201.png" alt="Guía Solar">
     </div>
@@ -235,9 +235,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/compra-segura-hotmart-w1000.png" alt="Compra segura">
 </div>
 
-  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/blob/3fa7e6be2d4e1ad19c59243f4fc8adb2268f514a/pagamento_kiwify-removebg-preview-1%20(1).webp" alt="Compra segura">
-</div>
-  
 <!-- STATS -->
 <div class="stats-sec">
   <div class="stats-grid">
@@ -251,6 +248,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
 <!-- MÓDULOS -->
 <section class="modulos-sec" id="modulos">
   <div class="modulos-inner">
+    <!-- img 2 -->
     <div class="modulos-img">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/img2.png" alt="Manual Solar">
     </div>
@@ -270,7 +268,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
 <!-- CTA MEIO -->
 <div class="cta-meio">
   <p>¿Listo para dominar el mercado solar y empezar a facturar?</p>
-  <a href="https://pay.kiwify.com/LaSRoOT" class="btn-verde">ACCEDER AL MÉTODO COMPLETO POR US$ 6,90</a>
+  <a href="https://pay.hotmart.com/P106540600T" class="btn-verde">ACCEDER AL MÉTODO COMPLETO POR US$ 9.97</a>
   <p class="cta-meio-sub">⚡ Entrega inmediata en tu e-mail</p>
 </div>
 
@@ -280,6 +278,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   <p class="bonus-sub">Diseñados para eliminar tus miedos y acelerar tus ganancias en el sector solar.</p>
 
   <div class="bonus-grid">
+    <!-- dimensionamiento -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/dimensionamiento.png" alt="Planilla Dimensionamiento">
       <div class="bonus-card-body">
@@ -288,6 +287,8 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
         <div class="bonus-preco"><span class="bonus-de">US$ 37</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
       </div>
     </div>
+
+    <!-- control financiero -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/control%20financiero.png" alt="Control Financiero">
       <div class="bonus-card-body">
@@ -296,6 +297,8 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
         <div class="bonus-preco"><span class="bonus-de">US$ 27</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
       </div>
     </div>
+
+    <!-- guia de herramientas -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/guia%20de%20herramientas.png" alt="Guía de Herramientas">
       <div class="bonus-card-body">
@@ -304,6 +307,8 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
         <div class="bonus-preco"><span class="bonus-de">US$ 34</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
       </div>
     </div>
+
+    <!-- herramientas (checklist) -->
     <div class="bonus-card">
       <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/herramientas.png" alt="Checklist Solar">
       <div class="bonus-card-body">
@@ -323,15 +328,22 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   <div class="bonus-cta">
     <br>
     <p style="text-align:center;color:rgba(255,255,255,0.85);margin-bottom:14px;font-size:15px;">¿Estás listo para dominar el mercado solar con estas herramientas?</p>
-    <a href="https://pay.kiwify.com/LaSRoOT" class="btn-verde">¡SÍ, QUIERO MI ACCESO + LOS 4 BONOS!</a>
+    <a href="https://pay.hotmart.com/P106540600T" class="btn-verde">¡SÍ, QUIERO MI ACCESO + LOS 4 BONOS!</a>
     <p class="bonus-sub2">🔒 Pago 100% Seguro &nbsp;|&nbsp; ⚡ Acceso Inmediato &nbsp;|&nbsp; 🛡️ 30 días de garantía</p>
   </div>
 </section>
 
-<!-- GARANTIA (banner 1) -->
+<!-- GARANTIA -->
 <section class="garantia-sec">
-  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/blob/0b200b7de1642ccbb35ab97a111c213d894a8ac6/Gemini_Generated_Image_8djwc8djwc8djwc8.png" alt="Garantia 30 dias">
+  <!-- banner 1 -->
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/banner%201.png" alt="Garantia 30 dias">
 </section>
+
+<!-- BANNER CHECKOUT -->
+<div class="banner-wrap">
+  <!-- banner 2 -->
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/banner%202.png" alt="Checkout seguro">
+</div>
 
 <!-- DEPOIMENTOS -->
 <section class="depoi-sec" id="testimonios">
@@ -364,7 +376,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   </div>
   <div class="depoi-cta">
     <br>
-    <a href="https://pay.kiwify.com/LaSRoOT" class="btn-verde-outline">¡QUIERO EMPEZAR COMO ELLOS! →</a>
+    <a href="https://pay.hotmart.com/P106540600T" class="btn-verde-outline">¡QUIERO EMPEZAR COMO ELLOS! →</a>
   </div>
 </section>
 
@@ -381,11 +393,6 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   </div>
 </section>
 
-<!-- BANNER 2 — largura total -->
-<div class="banner-wrap">
-  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/blob/b0d5db1b548b3b2928159d7df38b8fcbb104e7c0/Gemini_Generated_Image_pap6vkpap6vkpap6.png">
-</div>
-
 <!-- OFERTA FINAL -->
 <section class="oferta-final">
   <div class="of-selos">
@@ -399,14 +406,14 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
   <p class="of-sub">Únete a los más de 3,200 profesionales y comienza hoy mismo.</p>
   <p class="of-preco-de">Precio regular: US$ 67.00</p>
   <p class="of-preco-label">OFERTA HOY:</p>
-  <div class="of-preco">US$ 6,90</div>
-  <a href="https://pay.kiwify.com/LaSRoOT" class="btn-verde" style="max-width:440px;margin:0 auto 16px;">ADQUIRIR LA GUÍA POR US$6,90</a>
+  <div class="of-preco">US$ 9.97</div>
+  <a href="https://pay.hotmart.com/P106540600T" class="btn-verde" style="max-width:440px;margin:0 auto 16px;">ADQUIRIR LA GUÍA POR US$9.97</a>
   <ul class="of-checks">
     <li>Acceso Vitalicio e Inmediato</li>
     <li>Actualizaciones Gratis Incluidas</li>
     <li>Garantía Total de Satisfacción</li>
   </ul>
-  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/blob/a20a800595b489761bbaa238969b55d53a99eccf/pagamento_kiwify-removebg-preview-1%20(1).webp" alt="Compra segura" style="max-width:480px;width:100%;margin:16px auto 0;display:block;">
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiasolar/main/compra-segura-hotmart-w1000.png" alt="Compra segura" style="max-width:100%;width:100%;margin:16px auto 0;display:block;border-radius:10px;">
 </section>
 
 <!-- GRUPO -->
@@ -431,7 +438,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
     </div>
     <div class="obj-cta">
       <br>
-      <a href="https://pay.kiwify.com/LaSRoOT" class="btn-verde-big">SÍ, QUIERO EMPEZAR MI NEGOCIO SOLAR</a>
+      <a href="https://pay.hotmart.com/P106540600T" class="btn-verde-big">SÍ, QUIERO EMPEZAR MI NEGOCIO SOLAR</a>
       <div class="obj-cta-sub"><span>💳 Pago Seguro</span><span>✅ Acceso Vitalicio</span><span>🛡️ 30 Días de Garantía</span></div>
     </div>
   </div>
@@ -453,7 +460,7 @@ footer { background:#111; color:rgba(255,255,255,0.5); padding:40px 20px; }
 
 <!-- STICKY -->
 <div class="sticky" id="sticky">
-  <a href="https://pay.kiwify.com/LaSRoOT">☀️ COMPRAR AHORA — US$ 6,90</a>
+  <a href="https://pay.hotmart.com/P106540600T">☀️ COMPRAR AHORA — US$ 9.97</a>
 </div>
 
 <script>
