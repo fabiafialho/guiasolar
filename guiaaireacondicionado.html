@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instalador de Aire Acondicionado Split — De Cero a Profesional</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '975405682179811');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=975405682179811&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#fff; color:#111; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+/* NAV */
+nav { background:#122036; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+.nav-logo { font-family:'Poppins',sans-serif; font-size:17px; font-weight:800; color:white; }
+.nav-links { display:none; gap:20px; }
+.nav-links a { color:rgba(255,255,255,0.85); text-decoration:none; font-size:13px; font-weight:500; }
+.nav-cta { background:#e2761f; color:white; font-family:'Poppins',sans-serif; font-size:13px; font-weight:700; padding:9px 18px; border-radius:6px; text-decoration:none; white-space:nowrap; }
+@media(min-width:600px){ .nav-links { display:flex; } }
+
+/* HERO */
+.hero { background:linear-gradient(135deg,#122036 0%,#1a2c46 60%,#233855 100%); padding:36px 20px 40px; color:white; }
+.hero-inner { max-width:900px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:24px; }
+@media(min-width:680px){ .hero-inner { flex-direction:row; align-items:center; gap:36px; } .hero-text { flex:1; } .hero-img-wrap { width:320px; flex-shrink:0; } }
+.hero-text h1 { font-family:'Poppins',sans-serif; font-size:27px; font-weight:900; line-height:1.2; margin-bottom:10px; }
+@media(min-width:680px){ .hero-text h1 { font-size:32px; } }
+.hero-sub { font-size:15px; color:rgba(255,255,255,0.85); margin-bottom:18px; line-height:1.6; }
+.hero-preco-de { font-size:14px; color:rgba(255,255,255,0.55); margin-bottom:4px; }
+.hero-preco-de span { text-decoration:line-through; }
+.hero-preco { font-family:'Poppins',sans-serif; font-size:46px; font-weight:900; color:#f5a24f; line-height:1; margin-bottom:16px; }
+.btn-naranja { display:block; background:#e2761f; color:white; font-family:'Poppins',sans-serif; font-size:16px; font-weight:800; padding:16px 20px; border-radius:8px; text-decoration:none; text-align:center; margin-bottom:10px; }
+.btn-naranja:hover { background:#c9640f; }
+.hero-garantia { font-size:13px; color:rgba(255,255,255,0.7); margin-bottom:14px; }
+.hero-garantia strong { color:white; }
+.hero-social { font-size:14px; color:rgba(255,255,255,0.85); margin-bottom:6px; }
+.hero-stars { color:#f5a24f; font-size:18px; }
+.hero-img-wrap img { width:100%; border-radius:12px; display:block; }
+
+/* SELOS */
+.selos-wrap { background:white; padding:20px; text-align:center; border-bottom:1px solid #E5E7EB; }
+.selos-wrap img { max-width:480px; width:100%; margin:0 auto; display:block; }
+
+/* STATS */
+.stats-sec { background:white; padding:24px 20px; border-bottom:1px solid #E5E7EB; }
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); max-width:700px; margin:0 auto; gap:8px; text-align:center; }
+.stat-item strong { display:block; font-family:'Poppins',sans-serif; font-size:22px; font-weight:800; color:#122036; }
+.stat-item span { font-size:12px; color:#666; }
+
+/* MÓDULOS */
+.modulos-sec { background:white; padding:44px 20px; }
+.modulos-inner { max-width:900px; margin:0 auto; display:flex; flex-direction:column; gap:32px; }
+@media(min-width:680px){ .modulos-inner { flex-direction:row; align-items:flex-start; gap:40px; } .modulos-img { width:300px; flex-shrink:0; } .modulos-lista { flex:1; } }
+.modulos-img img { width:100%; border-radius:10px; display:block; }
+.modulos-lista h2 { font-family:'Poppins',sans-serif; font-size:26px; font-weight:900; color:#111; line-height:1.2; margin-bottom:6px; }
+.modulos-lista h2 em { color:#e2761f; font-style:normal; }
+.modulos-lista .sub { font-size:14px; color:#666; margin-bottom:20px; }
+.modulo-item { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid #F3F4F6; }
+.modulo-item:last-child { border-bottom:none; }
+.mod-check { width:24px; height:24px; background:#122036; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#f5a24f; font-size:13px; font-weight:700; flex-shrink:0; margin-top:2px; }
+.modulo-item h4 { font-size:15px; font-weight:700; color:#111; margin-bottom:3px; }
+.modulo-item p { font-size:13px; color:#555; margin:0; line-height:1.5; }
+
+/* CTA MEIO */
+.cta-meio { background:#F5F7FA; padding:32px 20px; text-align:center; border-top:1px solid #E5E7EB; border-bottom:1px solid #E5E7EB; }
+.cta-meio p { font-size:15px; color:#555; margin-bottom:14px; }
+.cta-meio .btn-naranja { max-width:460px; margin:0 auto 8px; }
+.cta-meio-sub { font-size:12px; color:#e2761f; font-weight:600; }
+
+/* BÔNUS */
+.bonus-sec { background:#0a1524; padding:44px 20px; }
+.bonus-sec h2 { font-family:'Poppins',sans-serif; font-size:24px; font-weight:900; color:white; text-align:center; margin-bottom:6px; }
+.bonus-sub { font-size:14px; color:rgba(255,255,255,0.7); text-align:center; margin-bottom:28px; }
+.bonus-grid { display:grid; grid-template-columns:1fr; gap:14px; max-width:700px; margin:0 auto; }
+@media(min-width:500px){ .bonus-grid { grid-template-columns:1fr 1fr; gap:20px; } }
+.bonus-card { background:#122036; border-radius:12px; overflow:hidden; text-align:center; }
+.bonus-card img { width:100%; display:block; aspect-ratio:1; object-fit:cover; }
+.bonus-card-body { padding:14px 12px; }
+.bonus-card-body h4 { font-size:14px; font-weight:700; color:white; margin-bottom:6px; line-height:1.3; }
+.bonus-card-body p { font-size:12px; color:rgba(255,255,255,0.7); margin-bottom:10px; line-height:1.5; }
+.bonus-preco { display:flex; align-items:center; justify-content:center; gap:8px; }
+.bonus-de { font-size:15px; color:rgba(255,255,255,0.4); text-decoration:line-through; font-weight:500; }
+.bonus-gratis { font-family:'Poppins',sans-serif; font-size:14px; font-weight:800; color:#f5a24f; }
+
+.bonus-total { max-width:700px; margin:24px auto 0; background:#122036; border-radius:12px; padding:24px 20px; text-align:center; }
+.bonus-total p { font-size:14px; color:rgba(255,255,255,0.8); margin-bottom:4px; font-weight:600; }
+.bonus-total-de { font-family:'Poppins',sans-serif; font-size:32px; font-weight:900; color:rgba(255,255,255,0.35); text-decoration:line-through; }
+.bonus-total-hoje { font-family:'Poppins',sans-serif; font-size:26px; font-weight:900; color:#f5a24f; margin-top:4px; }
+.bonus-cta { max-width:500px; margin:24px auto 0; }
+.bonus-sub2 { font-size:12px; color:rgba(255,255,255,0.5); text-align:center; margin-top:10px; }
+
+/* GARANTIA */
+.garantia-sec { background:white; padding:0; text-align:center; }
+.garantia-sec img { max-width:100%; width:100%; margin:0 auto; display:block; }
+.garantia-sec h2 { font-family:'Poppins',sans-serif; font-size:22px; font-weight:800; color:#111; margin-bottom:10px; }
+.garantia-sec p { font-size:15px; color:#555; max-width:420px; margin:0 auto; line-height:1.65; }
+
+/* BANNER CHECKOUT */
+.banner-wrap { background:white; padding:0; text-align:center; }
+.banner-wrap img { max-width:100%; width:100%; margin:0 auto; display:block; }
+
+/* DEPOIMENTOS */
+.depoi-sec { background:#F5F7FA; padding:44px 20px; }
+.depoi-sec h2 { font-family:'Poppins',sans-serif; font-size:24px; font-weight:800; color:#111; text-align:center; margin-bottom:24px; }
+.depoi-grid { display:grid; grid-template-columns:1fr; gap:14px; max-width:900px; margin:0 auto; }
+@media(min-width:600px){ .depoi-grid { grid-template-columns:repeat(3,1fr); } }
+.depoi-card { background:white; border-radius:12px; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+.depoi-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.depoi-avatar { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.depoi-nome { font-size:14px; font-weight:700; color:#111; }
+.depoi-local { font-size:12px; color:#888; }
+.depoi-cargo { font-size:12px; color:#122036; font-weight:600; }
+.depoi-stars { color:#f5a24f; font-size:15px; letter-spacing:1px; margin-bottom:8px; }
+.depoi-card p { font-size:14px; color:#444; line-height:1.65; font-style:italic; }
+.depoi-cta { text-align:center; margin-top:24px; }
+.btn-naranja-outline { display:inline-block; background:#e2761f; color:white; font-family:'Poppins',sans-serif; font-size:15px; font-weight:800; padding:16px 32px; border-radius:8px; text-decoration:none; }
+
+/* FAQ */
+.faq-sec { background:white; padding:44px 20px; }
+.faq-sec h2 { font-family:'Poppins',sans-serif; font-size:24px; font-weight:800; color:#111; text-align:center; margin-bottom:6px; }
+.faq-sub { font-size:14px; color:#888; text-align:center; margin-bottom:24px; }
+.faq-wrap { max-width:680px; margin:0 auto; }
+details { border:1px solid #E5E7EB; border-radius:10px; margin-bottom:10px; overflow:hidden; background:white; }
+summary { padding:16px 20px; font-size:15px; font-weight:600; color:#111; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+summary::-webkit-details-marker{ display:none; }
+summary::after { content:'▼'; font-size:12px; color:#e2761f; flex-shrink:0; }
+details[open] summary::after { transform:rotate(180deg); display:inline-block; }
+.faq-resp { padding:14px 20px 18px; font-size:15px; color:#555; line-height:1.65; border-top:1px solid #F3F4F6; }
+
+/* OFERTA FINAL */
+.oferta-final { background:white; padding:44px 20px; text-align:center; }
+.of-selos { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:20px 0; }
+.of-selo { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.of-selo span { font-size:22px; }
+.of-selo p { font-size:12px; color:#555; font-weight:500; }
+.of-titulo { font-family:'Poppins',sans-serif; font-size:26px; font-weight:900; color:#111; margin-bottom:8px; }
+.of-sub { font-size:15px; color:#555; margin-bottom:16px; }
+.of-preco-de { font-size:16px; color:#aaa; text-decoration:line-through; margin-bottom:2px; }
+.of-preco-label { font-size:14px; font-weight:700; color:#555; margin-bottom:4px; }
+.of-preco { font-family:'Poppins',sans-serif; font-size:50px; font-weight:900; color:#e2761f; line-height:1; margin-bottom:20px; }
+.of-checks { list-style:none; text-align:center; margin-bottom:20px; }
+.of-checks li { font-size:15px; color:#333; padding:4px 0; }
+.of-checks li::before { content:'✅ '; }
+
+/* GRUPO */
+.grupo-sec { background:#F5F7FA; padding:44px 20px; }
+.grupo-inner { max-width:700px; margin:0 auto; }
+.grupo-titulo { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.grupo-titulo span { font-size:22px; }
+.grupo-titulo h2 { font-family:'Poppins',sans-serif; font-size:18px; font-weight:800; color:#122036; }
+.grupo-sec p { font-size:15px; color:#444; line-height:1.7; margin-bottom:14px; }
+
+/* OBJEÇÕES */
+.obj-sec { background:white; padding:44px 20px; }
+.obj-inner { max-width:700px; margin:0 auto; }
+.obj-sec h2 { font-family:'Poppins',sans-serif; font-size:22px; font-weight:800; color:#111; margin-bottom:24px; }
+.obj-grid { display:grid; grid-template-columns:1fr; gap:14px; }
+@media(min-width:600px){ .obj-grid { grid-template-columns:1fr 1fr; } }
+.obj-card { border:1px solid #E5E7EB; border-radius:10px; padding:18px; }
+.obj-perg { display:flex; gap:8px; align-items:flex-start; margin-bottom:8px; }
+.obj-perg strong { font-size:14px; color:#c0392b; font-weight:700; }
+.obj-resp-txt { font-size:14px; color:#444; line-height:1.6; padding-left:24px; }
+.obj-cta { text-align:center; margin-top:28px; }
+.btn-naranja-big { display:block; background:#e2761f; color:white; font-family:'Poppins',sans-serif; font-size:16px; font-weight:800; padding:18px 32px; border-radius:8px; text-decoration:none; max-width:480px; margin:0 auto; }
+.obj-cta-sub { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:10px; }
+.obj-cta-sub span { font-size:12px; color:#888; }
+
+/* FOOTER */
+footer { background:#0a1524; color:rgba(255,255,255,0.5); padding:40px 20px; }
+.footer-inner { max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+@media(min-width:600px){ .footer-inner { grid-template-columns:repeat(4,1fr); } }
+.footer-col h4 { font-size:13px; font-weight:700; color:rgba(255,255,255,0.8); margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; }
+.footer-col p, .footer-col a { font-size:13px; color:rgba(255,255,255,0.45); display:block; margin-bottom:6px; text-decoration:none; line-height:1.5; }
+.footer-col a:hover { color:rgba(255,255,255,0.7); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,0.1); margin-top:24px; padding-top:20px; text-align:center; font-size:12px; color:rgba(255,255,255,0.3); max-width:900px; margin-left:auto; margin-right:auto; }
+
+/* STICKY */
+.sticky { position:fixed; bottom:0; left:0; right:0; background:white; border-top:2px solid #e2761f; padding:10px 20px; z-index:200; box-shadow:0 -4px 20px rgba(0,0,0,0.12); display:none; }
+.sticky a { display:block; background:#e2761f; color:white; font-family:'Poppins',sans-serif; font-size:15px; font-weight:800; padding:14px; border-radius:8px; text-align:center; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🔧 Instalador Split</div>
+  <div class="nav-links">
+    <a href="#inicio">Inicio</a>
+    <a href="#modulos">Módulos</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#preguntas">Preguntas</a>
+  </div>
+  <a href="https://pay.kiwify.com/RJBga1O" class="nav-cta">Comprar Ahora</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Guía Esencial para Instaladores de Aire Acondicionado</h1>
+      <p class="hero-sub">De Cero a Instalador Profesional — Aprende a instalar, mantener y cobrar correctamente por el aire acondicionado más instalado en Latinoamérica.</p>
+      <p class="hero-preco-de">Precio regular: <span>US$ 67.00</span></p>
+      <div class="hero-preco">US$ 6,90</div>
+      <a href="https://pay.kiwify.com/RJBga1O" class="btn-naranja" id="hero-cta">¡SÍ, QUIERO LA GUÍA POR US$ 6,90!</a>
+      <p class="hero-garantia">✔ Prueba sin riesgos: <strong>30 días</strong> de garantía total</p>
+      <p class="hero-social">Cientos de personas ya están dando sus primeros pasos como instaladores con este método.</p>
+      <div class="hero-stars">⭐⭐⭐⭐⭐ <span style="font-size:14px;color:rgba(255,255,255,0.8)">4.9/5 estrellas</span></div>
+    </div>
+    <!-- IMAGEN 1: mockup del ebook/curso completo (portada 3D o mockup en celular/tablet) -->
+    <div class="hero-img-wrap">
+      <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/1.png" alt="Instalador Split">
+    </div>
+  </div>
+</section>
+
+<!-- SELOS -->
+<div class="selos-wrap">
+  <!-- IMAGEN 2: selo de compra segura de tu plataforma de checkout -->
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/foma%20de%20pag.png" alt="Compra segura">
+</div>
+
+<!-- STATS -->
+<div class="stats-sec">
+  <div class="stats-grid">
+    <div class="stat-item"><strong>500+</strong><span>Alumnos Capacitados</span></div>
+    <div class="stat-item"><strong>4.9/5</strong><span>Calificación Promedio</span></div>
+    <div class="stat-item"><strong>4</strong><span>Módulos + 4 Bonos</span></div>
+    <div class="stat-item"><strong>100%</strong><span>Satisfacción Garantizada</span></div>
+  </div>
+</div>
+
+<!-- MÓDULOS -->
+<section class="modulos-sec" id="modulos">
+  <div class="modulos-inner">
+    <!-- IMAGEN 3: mockup del contenido interno / diagramas del curso -->
+    <div class="modulos-img">
+      <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/2.png" alt="Contenido del curso">
+    </div>
+    <div class="modulos-lista">
+      <h2>Todo lo que necesitas para <em>FACTURAR</em> en el mercado de climatización</h2>
+      <p class="sub">Un paso a paso diseñado para quienes buscan resultados rápidos y reales, enfocado en el aire acondicionado que realmente vas a instalar todos los días.</p>
+      <div class="modulo-item"><div class="mod-check">✓</div><div><h4>1. Fundamentos de la Refrigeración</h4><p>Ciclo de refrigeración, herramientas esenciales y seguridad en el trabajo.</p></div></div>
+<div class="modulo-item"><div class="mod-check">✓</div><div><h4>2. Instalación del Split Hi-Wall</h4><p>Dimensionamiento, montaje, tubería, conexión eléctrica y vacío del sistema.</p></div></div>
+<div class="modulo-item"><div class="mod-check">✓</div><div><h4>3. Mantenimiento Preventivo</h4><p>Checklists de limpieza, frecuencia de revisión y cuidado del equipo a largo plazo.</p></div></div>
+<div class="modulo-item"><div class="mod-check">✓</div><div><h4>4. Mantenimiento Correctivo</h4><p>Diagnóstico y solución de las fallas más comunes en equipos residenciales.</p></div></div>
+<div class="modulo-item"><div class="mod-check">✓</div><div><h4>5. Emprendimiento</h4><p>Formalización del negocio y cómo dar tus primeros pasos como profesional independiente.</p></div></div>
+<div class="modulo-item"><div class="mod-check">✓</div><div><h4>6. Gestión de Negocios</h4><p>Precios, ventas, marketing digital y fidelización de clientes.</p></div></div>
+  </div>
+</section>
+
+<!-- CTA MEIO -->
+<div class="cta-meio">
+  <p>¿Listo para dominar el mercado de climatización y empezar a facturar?</p>
+  <a href="https://pay.kiwify.com/RJBga1O" class="btn-naranja">ACCEDER AL MÉTODO COMPLETO POR US$ 6,90</a>
+  <p class="cta-meio-sub">⚡ Entrega inmediata en tu e-mail</p>
+</div>
+
+<!-- BÔNUS -->
+<section class="bonus-sec" id="bonos">
+  <h2>¡Regalos Exclusivos si Ordenas HOY!</h2>
+  <p class="bonus-sub">Diseñados para eliminar tus dudas técnicas y acelerar tus ganancias en el sector.</p>
+
+  <div class="bonus-grid">
+    <!-- IMAGEN 4: portada/mockup del Bono 1 -->
+    <div class="bonus-card">
+      <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/bono1.png" alt="Bono 1 Tecnología Inverter">
+      <div class="bonus-card-body">
+        <h4>Domina la Tecnología Inverter</h4>
+        <p>Entiende la diferencia real frente al convencional y diagnostica fallas específicas de estos equipos.</p>
+        <div class="bonus-preco"><span class="bonus-de">US$ 27</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
+      </div>
+    </div>
+
+    <!-- IMAGEN 5: portada/mockup del Bono 2 -->
+    <div class="bonus-card">
+      <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/bono%202.png" alt="Bono 2 Manual de Diagnóstico">
+      <div class="bonus-card-body">
+        <h4>Manual de Diagnóstico de Fallas</h4>
+        <p>El árbol de decisión y las tablas de presión que usan los técnicos experimentados para no adivinar.</p>
+        <div class="bonus-preco"><span class="bonus-de">US$ 27</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
+      </div>
+    </div>
+
+    <!-- IMAGEN 6: portada/mockup del Bono 3 -->
+    <div class="bonus-card">
+      <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/bono%203.png" alt="Bono 3 Checklist de Calidad">
+      <div class="bonus-card-body">
+        <h4>Checklist de Calidad y Eficiencia</h4>
+        <p>La lista que garantiza instalaciones sin reclamos y clientes satisfechos con la factura de luz.</p>
+        <div class="bonus-preco"><span class="bonus-de">US$ 19</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
+      </div>
+    </div>
+
+    <!-- IMAGEN 7: portada/mockup del Bono 4 -->
+    <div class="bonus-card">
+      <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/bono%204.png" alt="Bono 4 Guía de Herramientas">
+      <div class="bonus-card-body">
+        <h4>Guía de Herramientas Esenciales</h4>
+        <p>Qué comprar primero, qué especificación mirar y dónde conseguir todo más barato.</p>
+        <div class="bonus-preco"><span class="bonus-de">US$ 19</span><span class="bonus-gratis">¡HOY GRATIS!</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bonus-total">
+    <p>VALOR TOTAL QUE RECIBES DE REGALO:</p>
+    <div class="bonus-total-de">US$ 92</div>
+    <div class="bonus-total-hoje">🎁 HOY: US$ 0.00 (INCLUIDO)</div>
+  </div>
+
+  <div class="bonus-cta">
+    <br>
+    <p style="text-align:center;color:rgba(255,255,255,0.85);margin-bottom:14px;font-size:15px;">¿Estás listo para dominar el mercado con estas herramientas?</p>
+    <a href="https://pay.kiwify.com/RJBga1O" class="btn-naranja">¡SÍ, QUIERO MI ACCESO + LOS 4 BONOS!</a>
+    <p class="bonus-sub2">🔒 Pago 100% Seguro &nbsp;|&nbsp; ⚡ Acceso Inmediato &nbsp;|&nbsp; 🛡️ 30 días de garantía</p>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia-sec">
+  <!-- IMAGEN 8: banner de garantía de 30 días (diseño gráfico) -->
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/banner%201.png" alt="Garantía 30 días">
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoi-sec" id="testimonios">
+  <h2>Lo que dicen nuestros alumnos</h2>
+  <div class="depoi-grid">
+    <div class="depoi-card">
+      <div class="depoi-top">
+        <div class="depoi-avatar" style="background:#DBEAFE;">🧑</div>
+        <div><div class="depoi-nome">Andrés G.</div><div class="depoi-local">Colombia 🇨🇴</div><div class="depoi-cargo">Instalador independiente</div></div>
+      </div>
+      <div class="depoi-stars">⭐⭐⭐⭐⭐</div>
+      <p>"Material excelente. Muy práctico y directo al punto, me ayudó a entender el proceso completo antes de mi primer trabajo pagado."</p>
+    </div>
+    <div class="depoi-card">
+      <div class="depoi-top">
+        <div class="depoi-avatar" style="background:#D1FAE5;">👨</div>
+        <div><div class="depoi-nome">Felipe M.</div><div class="depoi-local">México 🇲🇽</div><div class="depoi-cargo">Técnico emprendedor</div></div>
+      </div>
+      <div class="depoi-stars">⭐⭐⭐⭐⭐</div>
+      <p>"La mejor decisión. El módulo de negocio me ayudó a cobrar correctamente en vez de adivinar el precio como hacía antes."</p>
+    </div>
+    <div class="depoi-card">
+      <div class="depoi-top">
+        <div class="depoi-avatar" style="background:#FEF3C7;">👨</div>
+        <div><div class="depoi-nome">Juan P.</div><div class="depoi-local">Argentina 🇦🇷</div><div class="depoi-cargo">Técnico en climatización</div></div>
+      </div>
+      <div class="depoi-stars">⭐⭐⭐⭐⭐</div>
+      <p>"El contenido es increíble. Los diagramas y las tablas de diagnóstico me dieron la seguridad para resolver casos que antes no sabía atender."</p>
+    </div>
+  </div>
+  <div class="depoi-cta">
+    <br>
+    <a href="https://pay.kiwify.com/RJBga1O" class="btn-naranja-outline">¡QUIERO EMPEZAR COMO ELLOS! →</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec" id="preguntas">
+  <h2>Preguntas Frecuentes</h2>
+  <p class="faq-sub">Todo lo que necesitas saber antes de empezar.</p>
+  <div class="faq-wrap">
+    <details><summary>¿Por cuánto tiempo tendré acceso al material?</summary><p class="faq-resp">El acceso es <strong>vitalicio</strong>. Una vez que adquieres el curso, es tuyo para siempre — incluyendo los 4 bonos exclusivos.</p></details>
+    <details><summary>¿Cuál es el formato del curso?</summary><p class="faq-resp">Es <strong>100% digital</strong>, optimizado para leer en el celular, tablet o computadora, con diagramas técnicos y checklists listos para usar.</p></details>
+    <details><summary>¿Necesito experiencia previa?</summary><p class="faq-resp"><strong>No.</strong> El curso fue diseñado para empezar desde cero, con lenguaje claro y paso a paso. Sí recomendamos practicar con supervisión antes de atender clientes solo, como se explica dentro del material.</p></details>
+    <details><summary>¿Cómo puedo pagar y recibir el curso?</summary><p class="faq-resp">La plataforma acepta <strong>tarjetas de crédito, débito y medios electrónicos</strong>. Recibes el acceso inmediato en tu correo electrónico tras la compra.</p></details>
+    <details><summary>¿Hay soporte después de la compra?</summary><p class="faq-resp">Sí. Contamos con soporte por <strong>email e Instagram</strong> donde puedes resolver dudas con nuestro equipo.</p></details>
+  </div>
+</section>
+
+<!-- BANNER CHECKOUT -->
+<div class="banner-wrap">
+  <!-- IMAGEN 9: banner de checkout seguro / formas de pago aceptadas -->
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/banner%202.png" alt="Checkout seguro">
+</div>
+
+<!-- OFERTA FINAL -->
+<section class="oferta-final">
+  <div class="of-selos">
+    <div class="of-selo"><span>🔒</span><p>SSL Seguro</p></div>
+    <div class="of-selo"><span>✅</span><p>Satisfacción Garantizada</p></div>
+    <div class="of-selo"><span>💳</span><p>Pagos Seguros</p></div>
+    <div class="of-selo"><span>✉️</span><p>Soporte 24/7</p></div>
+    <div class="of-selo"><span>🏆</span><p>⭐⭐⭐⭐⭐ 4.9/5</p></div>
+  </div>
+  <h2 class="of-titulo">¿Listo para transformar tu futuro?</h2>
+  <p class="of-sub">Únete a los alumnos que ya comenzaron su camino como instaladores.</p>
+  <p class="of-preco-de">Precio regular: US$ 67.00</p>
+  <p class="of-preco-label">OFERTA HOY:</p>
+  <div class="of-preco">US$ 6,90</div>
+  <a href="https://pay.kiwify.com/RJBga1O" class="btn-naranja" style="max-width:440px;margin:0 auto 16px;">ADQUIRIR EL CURSO POR US$6,90</a>
+  <ul class="of-checks">
+    <li>Acceso Vitalicio e Inmediato</li>
+    <li>4 Módulos + 4 Bonos Incluidos</li>
+    <li>Garantía Total de 30 Días</li>
+  </ul>
+  <!-- IMAGEN 10 (opcional): selo de compra segura, repetido aquí antes del checkout final -->
+  <img src="https://raw.githubusercontent.com/fabiafialho/guiaaireacondicionado/main/foma%20de%20pag.png" alt="Compra segura" style="max-width:100%;width:100%;margin:16px auto 0;display:block;border-radius:10px;">
+</section>
+
+<!-- GRUPO -->
+<section class="grupo-sec">
+  <div class="grupo-inner">
+    <div class="grupo-titulo"><span>🌎</span><h2>Formación Técnica en Toda Latinoamérica</h2></div>
+    <p>Este curso está diseñado para instaladores y emprendedores del mercado de climatización en toda Latinoamérica — con contenido que aplica en México, Colombia, Chile, Argentina y Perú.</p>
+    <p>Nuestra metodología práctica democratiza el conocimiento técnico, permitiendo que cualquier persona entienda el oficio con una base sólida y un plan claro de crecimiento profesional.</p>
+    <p>Los alumnos están usando este material para dar sus primeros pasos con seguridad y empezar a cobrar de forma correcta desde el primer servicio.</p>
+  </div>
+</section>
+
+<!-- OBJEÇÕES -->
+<section class="obj-sec">
+  <div class="obj-inner">
+    <h2>¿Aún tienes dudas? Esto es lo que obtendrás:</h2>
+    <div class="obj-grid">
+      <div class="obj-card"><div class="obj-perg"><strong>❌ ¿No tengo experiencia?</strong></div><p class="obj-resp-txt">El método es 100% paso a paso, diseñado para quienes empiezan desde cero absoluto, con un plan claro de práctica antes de tu primer servicio pagado.</p></div>
+      <div class="obj-card"><div class="obj-perg"><strong>❌ ¿Es muy caro empezar?</strong></div><p class="obj-resp-txt">Te enseñamos a armar tu kit de herramientas de forma inteligente, sin gastar de más ni comprar algo que no sirve.</p></div>
+      <div class="obj-card"><div class="obj-perg"><strong>❌ ¿Tengo poco tiempo?</strong></div><p class="obj-resp-txt">El curso es práctico y directo al grano, con checklists y diagramas para aprender rápido sin perderte en teoría innecesaria.</p></div>
+      <div class="obj-card"><div class="obj-perg"><strong>❌ ¿Y si no me gusta?</strong></div><p class="obj-resp-txt">Tienes 30 días de garantía total. Si no estás satisfecho, te devolvemos el 100%.</p></div>
+    </div>
+    <div class="obj-cta">
+      <br>
+      <a href="https://pay.kiwify.com/RJBga1O" class="btn-naranja-big">SÍ, QUIERO EMPEZAR MI CAMINO COMO INSTALADOR</a>
+      <div class="obj-cta-sub"><span>💳 Pago Seguro</span><span>✅ Acceso Vitalicio</span><span>🛡️ 30 Días de Garantía</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col"><h4>Contacto</h4><p>✉️ soporte@instaladorsplit.com</p><p>🕐 Lun-Vie 9am–6pm</p></div>
+    <div class="footer-col"><h4>Información</h4><a href="#inicio">Inicio</a><a href="#modulos">Módulos</a><a href="#testimonios">Testimonios</a><a href="#preguntas">FAQ</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="#">Política de Privacidad</a><a href="#">Términos de Uso</a><a href="#">Política de Reembolso</a></div>
+    <div class="footer-col"><h4>Síguenos</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">YouTube</a></div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Instalador Split. Todos los derechos reservados.<br><br>
+    <span style="font-size:11px;">Este sitio no es parte de Facebook™ o Meta™ Inc.</span>
+  </div>
+</footer>
+
+<!-- STICKY -->
+<div class="sticky" id="sticky">
+  <a href="https://pay.kiwify.com/RJBga1O">🔧 COMPRAR AHORA — US$ 6,90</a>
+</div>
+
+<script>
+  const heroCta = document.getElementById('hero-cta');
+  const sticky = document.getElementById('sticky');
+  const obs = new IntersectionObserver(([e]) => {
+    sticky.style.display = e.isIntersecting ? 'none' : 'block';
+  }, { threshold: 0 });
+  obs.observe(heroCta);
+</script>
+
+</body>
+</html>
