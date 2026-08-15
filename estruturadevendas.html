@@ -8,24 +8,6 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
- <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '3994044114225885');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3994044114225885&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
- 
   :root {
     --black: #0A0A0A;
     --dark: #111111;
@@ -139,7 +121,25 @@ src="https://www.facebook.com/tr?id=3994044114225885&ev=PageView&noscript=1"
   .learn-text strong { display: block; font-size: 0.95rem; margin-bottom: 4px; color: var(--white); }
   .learn-text span { font-size: 0.85rem; color: var(--gray); line-height: 1.5; }
 
-.authority-photo { width: 100%; max-width: 320px; height: auto; aspect-ratio: 1 / 1; border-radius: 16px; object-fit: cover; border: 3px solid var(--orange); margin: 0 auto 20px; display: block; }</style>
+  .authority-photo { width: 100%; max-width: 320px; height: auto; aspect-ratio: 1 / 1; border-radius: 16px; object-fit: cover; border: 3px solid var(--orange); margin: 0 auto 20px; display: block; }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3994044114225885');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3994044114225885&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -227,7 +227,8 @@ src="https://www.facebook.com/tr?id=3994044114225885&ev=PageView&noscript=1"
 
 <section class="authority">
   <div class="authority-inner">
-<img class="authority-photo" src="https://raw.githubusercontent.com/fabiafialho/guiasolar/6f8756a5432fef252a71b9fb166040e8fa94c032/novs%20criativos%20solar%20ads.png" alt="Fábia Fialho">    <h2 class="display" style="text-align:center;">Quem sou eu</h2>
+    <img class="authority-photo" src="https://raw.githubusercontent.com/fabiafialho/guiasolar/6f8756a5432fef252a71b9fb166040e8fa94c032/novs%20criativos%20solar%20ads.png" alt="Fábia Fialho">
+    <h2 class="display" style="text-align:center;">Quem sou eu</h2>
     <div class="divider" style="margin:20px 0;"></div>
     <p>
       Fui vendedora de energia solar. Sei o que é estar na ponta — lidar com lead sem script, mandar proposta e torcer pra o cliente responder.<br><br>
@@ -259,5 +260,15 @@ src="https://www.facebook.com/tr?id=3994044114225885&ev=PageView&noscript=1"
   <a href="https://wa.me/553185671128?text=Quero%20garantir%20minha%20vaga" class="btn-sticky" target="_blank" rel="noopener">Quero garantir minha vaga</a>
 </div>
 
+
+<script>
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+      }
+    });
+  });
+</script>
 </body>
 </html>
